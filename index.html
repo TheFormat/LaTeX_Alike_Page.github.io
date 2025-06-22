@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=defice-width, initial-scale=1.0">
+    <title>LaTeX CSS</title>
+    <link rel="stylesheet" href="LaTeX.css">
+</head>
+
+<body>
+    <header>
+        <a href="nextpage.html" class="logo">🔗 Introducing Me</a>
+        <h1>
+            <span class="latex">L<span>a</span>T<span>e</span>X</span>
+            .B<span>y</span></h1>
+        <p class="author">
+            DongHyo Lee <br />
+            started in 13th,May,2024
+        </p>
+    </header>
+
+    <main>
+        <article class="abstract">
+            <h2>Abstract</h2>
+            <p>This is the place where the subjects that most undergraduates majoring Mathematics would learn. Nothing special, just going write what I want.</p>
+            <p class="pen">학부생으로서 배웠던 수학을 총망라하여 두서없이 작성하는 곳. 아래 글 내용은 각 과목에서 배운 것 중에서 하나씩 빼와서 작성한 것이다.</p>
+        </article>
+        <nav>
+            <ol>
+                <li><a href="#discrete">Discrete Mathematics</a></li>
+                <li><a href="#differential">Differential Equation</a></li>
+                <li><a href="#topology">Topology</a></li>
+                <li><a href="#number">Number Theory</a></li>
+                <li><a href="#number">Complex Analysis</a></li>
+                <li><a href="#number">Abstract Algebra</a></li>
+                <li><a href="#number">Differential Geometry</a></li>
+                <li><a href="AuctionTheory.html">Auction Theory</a></li>
+                <li><a href="#number">Partial Differential Equation</a></li>
+                <li><a href="#number">Applied Numerical Methods</a></li>
+                <li><a href="#environments">Environments</a>
+        </nav>
+        <section>
+            <h2 id="discrete">Discrete Mathematics</h2>
+            <p class="pen">
+                (23-1)제대로 안한건지, 얕게 한건지는 몰라도 수학들 중에서 제일 신선하고 재미있었다. 좀 더 수학을 공부해야겠다는 생각이
+                든 과목이다.
+            </p>
+            <p>$\int f(x)dx$</p>
+        </section>
+        <section>
+            <h2 id="differential">Differential Equation</h2>
+            <p class="pen">
+                (23-1)미방은 고등수학의 연장선 느낌이 든다. 공대애들이 훨씬 더 잘하는 것 같다. 문제는 공대생들보다도 못푸니 정리들이라도 증명해야겠다.
+            </p>
+        </section>
+        <section>
+            <h2 id="topology">Topology</h2>
+            <p class="pen">
+                (24-1)수학과 해석학을 듣고 바로 들어보는 입장에서, 뭔가 실수에서만 사용되는 개념을 일반화시키고 정리로 사용된 open, closed를 
+                정의로 사용하면서 시작하니 뭔가 신기하긴 하다.
+            </p>
+            <p>$\int f(x)dx$</p>
+        </section>
+        <section>
+            <h2 id="number">Number Theory</h2>
+            <p class="pen">
+                (23-2)정수론이지만, integer에 그치지 않는, 영문 그대로 수에 대해 배웠던 과목이다. 데데킨트 컷이 젤 인상깊고, 데데킨트 컷밖에
+                생각이 나지 않았던..
+            </p>
+        </section>
+        <section>
+            <h2 id="number">Complex Analysis</h2>
+            <p class="pen">
+                (24-1)기억이 잘..
+            </p>
+        </section>
+        <section>
+            <h2 id="number">Abstract Algebra</h2>
+            <p class="pen">
+                (25-1)
+            </p>
+        </section>
+        <section>
+            <h2 id="number">Differential Geometry</h2>
+            <p class="pen">
+                (25-1)
+            </p>
+            <div class="theorem">
+    Show that for $\beta(t) = \alpha\circ \varphi(t)$,
+     $$\kappa[\beta](t) = \kappa[\alpha](\varphi(t)), \tau[\beta](t) = \tau[\alpha](\varphi(t))$$</div>
+            <div class="proof">Know that
+    \begin{align*}
+    \dot{\beta}(t) &= \dot{\alpha}(\varphi(t))\dot{\varphi}(t), \ddot{\beta}(t) = \ddot{\alpha}(\varphi(t))\dot{\varphi}^{2}(t)+\dot{\alpha}(\varphi(t))\ddot{\varphi}(t)\\
+    \dddot{\beta}(t) &= \dddot{\alpha}(\varphi(t))\dot{\varphi}^{3}(t)+2\ddot{\alpha}(\varphi(t))\ddot{\varphi}(t)+\ddot{\alpha}(\varphi(t))\dot{\varphi}(t)\ddot{\varphi}(t) +\dot{\alpha}(\varphi(t))\dddot{\varphi}(t)\\
+    \dot{\beta}(t)\times\ddot{\beta}(t) &= \dot{\varphi}^{3}(t)(\dot{\alpha}(\varphi(t))\times\ddot{\alpha}(\varphi(t)))\\
+    (\dot{\beta}(t)\times\ddot{\beta}(t))\cdot\dddot{\beta}(t) &= \dot{\varphi}^{6}(t)(\dot{\alpha}(\varphi(t))\times\ddot{\alpha}(\varphi(t)))\cdot\dddot{\alpha}(\varphi(t))\\
+    \text{Then, we have}\\
+    \kappa[\beta](t) &=\frac{|\dot{\beta}(t)\times\ddot{\beta}(t)|}{|\dot{\beta}(t)|^{3}}=\frac{|\dot{\varphi}^{3}(t)||\dot{\alpha}(\varphi(t))\times\ddot{\alpha}(\varphi(t))|}{|\dot{\varphi}^{3}(t)||\dot{\alpha}(\varphi(t))|}  = \kappa[\alpha](\varphi(t))\\
+    \tau[\beta](t) &= \frac{(\dot{\beta}(t)\times\ddot{\beta}(t))\cdot\dddot{\beta}(t)}{|\dot{\beta}(t)\times\ddot{\beta}(t)|^{2}} =\frac{\dot{\varphi}^{6}(t)(\dot{\alpha}(\varphi(t))\times\ddot{\alpha}(\varphi(t)))\cdot\dddot{\alpha}(\varphi(t))}{\dot{\varphi}^{6}(t)|\dot{\alpha}(\varphi(t))\times\ddot{\alpha}(\varphi(t))|^{2}}= \tau[\alpha](\varphi(t))
+    \end{align*}</div>
+        </section>
+        <section>
+            <h2 id="number">Auction Theory</h2>
+            <p class="pen">
+                (25-1)
+            </p>
+            <p>(Power distribution) Suppose there are two bidders with private values
+            that are distributed independently according to the distribution $F(x)=x^{a}$
+            over $[0,1]$, where $a>0$. Then, the symmetric equilibrium bidding strategies in
+            a first-price auction is 
+    \begin{align*}
+    \Pi_{1}(b,x) &= (x-b)P(\beta^{\mathrm{I}}(X_{2})\leq b) = (x-\beta^{\mathrm{I}}(z))z^{a}\\
+    \frac{\partial}{\partial z}\Pi_{1}\bigg|_{z=x} &= axx^{a-1}-\frac{\partial}{\partial z}(\beta^{\mathrm{I}}(z)z^{a})\bigg|_{z=x} = 0, \beta^{\mathrm{I}}(x) = \frac{a}{a+1}x.
+    \end{align*}</p>
+        </section>
+        <section>
+            <h2 id="number">Partial Differential Equation</h2>
+            <p class="pen">
+                (24-2 Exchange Student, GSU) Wave Equation이랑 Heat Equation 을 $(-\infty,\infty)$, $[0,\infty)$, $[0,l]$에서 푸는 방법들을 배웠다.
+            </p>
+            <p>(Wave Eq) $u_{tt}-c^{2}u_{xx} = 0$ <br />
+            (Heat Eq) $u_{t}-ku_{xx} = 0$</p>
+        </section>
+        <section>
+            <h2 id="number">Applied Numerical Methods</h2>
+            <p class="pen">
+                (24-2 Exchange Student, GSU)수치해석학의 기본을 배운 것 같다. 함수들의 근부터, 미분계수, 특정한 적분값, n차연립방정식, 심지어는 고유값과 고유벡터까지..
+                컴퓨터의 대단함을 느끼는 기분이다.
+            </p>
+        </section>
+        <section>
+            <h2 id="environments">Environment</h2>
+            <h3>Theorem and Proofs(Temporary placement, 철거예정)</h3>
+            <div class="theorem">
+                (Schwartz inequality)Let $a_{1}, \ldots , a_{n}$ and $b_{1}, \ldots , b_{n}$ be complex numbers.
+                $$|\sum_{k=1}^{n}a_{k}\bar{b_{k}}|^{2}\leq (\sum_{k=1}^{n}|a_{k}|^{2})(\sum_{k=1}^{n}|b_{k}|^{2})$$
+            </div>
+            <div class="proof">
+                Know that $\langle \vec{x},\vec{x} \rangle \geq 0 \textbf{  } \forall \vec{x}$. Also, since we defined $e^{i\theta} = \frac{\langle \vec{x},\vec{y} \rangle}{|\langle \vec{x},\vec{y} \rangle|}$, we know that $e^{-i\theta} = \frac{|\langle \vec{x},\vec{y} \rangle|}{\langle \vec{x},\vec{y} \rangle}$. By the definition of inner product, $\langle c\vec{x},\vec{y} \rangle = c\langle \vec{x},\vec{y} \rangle$. Then, we also get $\langle \vec{x},c\vec{y} \rangle = \bar{c}\langle \vec{x},\vec{y} \rangle$
+    begin{align*}
+    0\leq f(t) = \langle \vec{x}+te^{i\theta}\vec{y}, \vec{x}+te^{i\theta}\vec{y}\rangle &= \langle \vec{x},\vec{x} \rangle + \langle \vec{x},te^{i\theta}\vec{y} \rangle + \langle te^{i\theta}\vec{y},\vec{x} \rangle + \langle te^{i\theta}\vec{y},te^{i\theta}\vec{y} \rangle\\
+    &= \langle \vec{x},\vec{x} \rangle + te^{-i\theta}\langle \vec{x},\vec{y} \rangle + te^{i\theta}\langle \vec{y},\vec{x} \rangle + te^{i\theta}te^{-i\theta}\langle \vec{y},\vec{y} \rangle\\
+    &= \langle \vec{x},\vec{x} \rangle + t|\langle \vec{x},\vec{y} \rangle| + t\frac{\langle \vec{x},\vec{y} \rangle \langle \vec{y},\vec{x} \rangle}{|\langle \vec{x},\vec{y} \rangle|} + t^{2}\langle \vec{y},\vec{y} \rangle\\
+    &= \langle \vec{x},\vec{x} \rangle + 2t|\langle \vec{x},\vec{y} \rangle| + t^{2}\langle \vec{y},\vec{y} \rangle \text{(Quadratic inequality of t)}\\
+    \end{align*}
+    Since this holds for every $t\in \mathbb{R}$,
+    $$D = |\langle \vec{x},\vec{y} \rangle|^{2} - \langle \vec{x},\vec{x} \rangle \langle \vec{y},\vec{y} \rangle \leq 0.$$
+    $LHS$ of Schwartz inequality is $|\langle \vec{x},\vec{y} \rangle|^{2}$ and $RHS$ is $\langle \vec{x},\vec{x} \rangle \langle \vec{y},\vec{y} \rangle = |\vec{x}|^{2}|\vec{y}|^{2}$, so it's showed by $D$.
+            </div>
+            <div class="definition">Definition of some of things...</div>
+        </section>
+
+        <section>
+            <h2>Formatting Texts</h2>
+            <div>
+                Some text can be <strong>bold</strong> and <sup>some</sup> can be <em>emphasized</em>.
+            <blockquote class="pen">하기 싫다 <cite>-이동효</cite>
+            </blockquote>
+            </div>
+        </section>
+
+    </main>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {inlineMath: [["$","$"],["\\(","\\)"]]<!-- $수식$도 표현할 수 있게 -->
+            }
+        }
+    </script>
+</body>
+</html>
