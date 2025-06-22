@@ -12,7 +12,7 @@
 | `nextpage.html` | 서브 페이지 (자유 내용) |
 | `AuctionTheory.html` | 경매 이론 페이지 |
 | `LaTeX.css` | LaTeX 스타일의 CSS 정의 |
-| `fonts/` | Latin Modern / Libertinus 폰트 폴더 |
+
 
 ---
 
@@ -51,3 +51,4 @@ DongHyo Lee
 ## 📎 참고
 
 - [LaTeX.css GitHub](https://github.com/vincentdoerig/latex-css)
+- [LaTeX 스타일 웹사이트 바로가기](https://theformat.github.io/LaTeX_Alike_Page.github.io/)
