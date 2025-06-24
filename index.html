@@ -48,7 +48,60 @@
                 (23-1)제대로 안한건지, 얕게 한건지는 몰라도 수학들 중에서 제일 신선하고 재미있었다. 좀 더 수학을 공부해야겠다는 생각이
                 든 과목이다.
             </p>
-            <p>$\int f(x)dx$</p>
+            <p>$$F_{n+2} = F_{n+1}+F_{n}, n \in \mathbb{Z}_{\geq 0}$$
+               $$F_{0} = 0, F_{1} = 1$$
+            </p>
+            <p>Put the non-negative interger $n$:</p>
+            <input type="number" id="numberInput">
+            <button onclick="showFibonacci()">Make sure its non-negative Integer!</button>
+
+            <p id="result"></p>
+
+            <script>
+            function fibonacci(n) {
+            if (n <= 1) return n;
+            let a = 0, b = 1;
+            for (let i = 2; i <= n; i++) {
+                const temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return b;
+            }
+
+            function showFibonacci() {
+            const input = document.getElementById("numberInput").value;
+            const n = Number(input);
+            if (!Number.isInteger(n)) {
+                document.getElementById("result").innerText = "I said Integer..";
+                return;
+            }
+            else if (n < 0) {
+                document.getElementById("result").innerText = "Don't put the minus sign..";
+                return;
+            }
+
+            const fib = fibonacci(n);
+            document.getElementById("result").innerText = `${fib} is the ${n}th Fibonacci number!`;
+            }
+            </script>
+            <div class = 'proof'>Here's one way to derive it.
+            \begin{align*}
+            \begin{bmatrix}
+            1 & 1 \\
+            1 & 0
+            \end{bmatrix}^n
+            \begin{bmatrix}
+            F_1 \\
+            F_0
+            \end{bmatrix}
+            &=
+            \begin{bmatrix}
+            F_{n+1} \\
+            F_n
+            \end{bmatrix}
+            \end{align*}    
+            </div>
         </section>
         <section>
             <h2 id="differential">Differential Equation</h2>
