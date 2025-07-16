@@ -5,7 +5,7 @@
     <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=defice-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--원래 defice였다-->
     <title>LaTeX CSS</title>
     <link rel="stylesheet" href="LaTeX.css">
 </head>
@@ -23,7 +23,11 @@
         </p>
     </header>
 
-    <main>
+    <aside id="sticky-box">
+        <p>Finna add a link. Don't know what it will be..</p>
+    </aside>
+    <div class="container">
+        <main>
         <article class="abstract">
             <h2>Abstract</h2>
             <p>This is the place where the subjects that most undergraduates majoring Mathematics would learn. Nothing
@@ -297,6 +301,7 @@
         </section>
 
     </main>
+    </div>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         MathJax = {
