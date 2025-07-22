@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Tree Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="fractal-tree-canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('fractal-tree-canvas');
+        const ctx = canvas.getContext('2d');
+
+        const canvasWidth = window.innerWidth * 0.9;
+        const canvasHeight = window.innerHeight * 0.9;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+        const startX = canvasWidth / 2;
+        const startY = canvasHeight;
+        const startLength = Math.min(canvasWidth, canvasHeight) * 0.15;
+        const startAngle = -Math.PI / 2;
+        const branchAngle = Math.PI / 6;
+        const branchLengthRatio = 0.75;
+        const maxDepth = 10;
+        const animationDuration = 5000; // 5 seconds
+        let startTime;
+
+        function easeOutQuad(t) {
+            return t * (2 - t);
+        }
+
+        function drawBranch(x, y, length, angle, depth, progress) {
+            if (depth >= maxDepth) {
+                return;
+            }
+
+            const endX = x + length * Math.cos(angle);
+            const endY = y + length * Math.sin(angle);
+
+            const branchProgress = Math.max(0, Math.min(1, (progress - depth) / (branchLengthRatio)));
+
+            if (branchProgress > 0) {
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + (endX - x) * branchProgress, y + (endY - y) * branchProgress);
+                ctx.strokeStyle = `hsl(${depth * 20}, 100%, 50%)`;
+                ctx.lineWidth = (maxDepth - depth) / 2;
+                ctx.stroke();
+            }
+
+
+            if (progress > depth + 1) {
+                drawBranch(endX, endY, length * branchLengthRatio, angle - branchAngle, depth + 1, progress);
+                drawBranch(endX, endY, length * branchLengthRatio, angle + branchAngle, depth + 1, progress);
+            }
+        }
+
+        function animate(currentTime) {
+            if (!startTime) {
+                startTime = currentTime;
+            }
+
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / animationDuration, 1);
+            const easedProgress = easeOutQuad(progress);
+
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+            drawBranch(startX, startY, startLength, startAngle, 0, easedProgress * maxDepth);
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>

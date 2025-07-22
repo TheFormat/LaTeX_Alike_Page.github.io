@@ -2,18 +2,67 @@
 <html lang='en'>
 
 <head>
-    <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=defice-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaTeX CSS Auction Theory</title>
     <link rel="stylesheet" href="LaTeX.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
     <main>
-        <h2>
-            이제 시작이다. 
-        </h2>
+        <h1>
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <span class="latex">L<span>a</span>T<span>e</span>X</span>
+                .B<span>y</span>
+            </a>
+        </h1>
+        <h2>Auction Theory</h2>
+
+        <input type="range" min="0" max="2" step="1" id="customRange">
+
+        <div class="ticks">
+            <div class="tick">Ex Ante</div>
+            <div class="tick">interion</div>
+            <div class="tick">Ex Post</div>
+        </div>
+
+        <div id="contentArea" style="margin-top: 20px; font-size: 1.2em;">
+            어느 시점에서의 bidding situation을 보고 싶나요? 슬라이더를 눌러서 확인해보세요
+        </div>
     </main>
+
+    <script>
+        const slider = document.getElementById('customRange');
+        const content = document.getElementById('contentArea');
+
+        const texts = [
+            "<p>Ex Ante, 즉 내 상황 자체도 잘 모를때이다. 이럴때는 내 상태도 확률분포 $X$를 따른다.</p>",
+            "<p>interion, 남들은 분포만 알고 나는 $x$로 물건의 가치를 정해놓은 상황이다.</p>",
+            "<p>Ex Post, 남들의 가치도 다 알고, 나도 $x$라고 마음을 정한 상태가 되겠다.</p>"
+        ];
+
+        function typesetContent() {
+            content.innerHTML = texts[slider.value];
+            // Tell MathJax to typeset the new content
+            MathJax.typesetPromise([content]).catch((err) => console.log('Typeset failed: ' + err.message));
+        }
+
+        slider.addEventListener('input', typesetContent);
+
+        // Initial typeset
+        typesetContent();
+    </script>
+    <p>$$S$$</p>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]]<!-- $수식$도 표현할 수 있게 -->
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
+
+</html>
