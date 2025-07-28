@@ -34,7 +34,7 @@ input[type=range] {
 /* 트랙 */
 input[type=range]::-webkit-slider-runnable-track {
     height: 8px;
-    background: linear-gradient(to right, #bbb 0%, #bbb 33%, transparent 33%, transparent 66%, #bbb 66%, #bbb 100%);
+    background: linear-gradient(to right, transparent 0%, transparent 33%, #bbb 33%, #bbb 66%, #838383 66%, #838383 100%);
 }
 input[type=range]::-moz-range-track {
     height: 8px;
