@@ -50,5 +50,5 @@ DongHyo Lee
 
 ## 📎 참고
 
-- [LaTeX.css GitHub](https://github.com/vincentdoerig/latex-css)
-- [LaTeX 스타일 웹사이트 바로가기](https://theformat.github.io/LaTeX_Alike_Page.github.io/)
+<a href="https://github.com/vincentdoerig/latex-css" target="_blank">LaTeX.css GitHub</a>
+<a href="https://theformat.github.io/LaTeX_Alike_Page.github.io/" target="_blank">LaTeX 스타일 웹사이트 바로가기</a>
