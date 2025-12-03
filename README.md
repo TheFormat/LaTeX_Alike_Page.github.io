@@ -52,3 +52,4 @@ DongHyo Lee
 
 <a href="https://github.com/vincentdoerig/latex-css" target="_blank">LaTeX.css GitHub</a>
 <a href="https://theformat.github.io/LaTeX_Alike_Page.github.io/" target="_blank">LaTeX 스타일 웹사이트 바로가기</a>
+github 정책상 새 창에서는 안열린다고 합니다.
