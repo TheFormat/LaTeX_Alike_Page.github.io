@@ -12,33 +12,35 @@
 </head>
 
 <body>
-    <main>
-        <header>
-            <h1>
-            <a href="index.html" style="text-decoration: none; color: inherit;">
-                <span class="latex">L<span>a</span>T<span>e</span>X</span>
-                .B<span>y</span>
-            </a>
-            </h1>
-        </header>
-        <h2>Auction Theory</h2>
-        <aside id="sticky-box">
-            <p>Finna add a link. Don't know what it will be..</p>
-        </aside>
+    <header>
+        <h1>
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+            <span class="latex">L<span>a</span>T<span>e</span>X</span>
+            .B<span>y</span>
+        </a>
+        </h1>
+        <br>
+        <p class="author">
+        DongHyo Lee
+        </p>
+        <button id="dark-mode-toggle">어둡게</button>
+    </header>
+    <h2>Auction Theory</h2>
+    <aside id="sticky-box">
+        <p>Finna add a link. Don't know what it will be..</p>
+    </aside>
 
-        <input type="range" min="0" max="2" step="1" id="customRange">
+    <input type="range" min="0" max="2" step="1" id="customRange">
 
-        <div class="ticks">
-            <div class="tick">Ex Ante</div>
-            <div class="tick">interion</div>
-            <div class="tick">Ex Post</div>
-        </div>
+    <div class="ticks">
+        <div class="tick">Ex Ante</div>
+        <div class="tick">interion</div>
+        <div class="tick">Ex Post</div>
+    </div>
 
-        <div id="contentArea" style="margin-top: 20px; font-size: 1.2em;">
-            어느 시점에서의 bidding situation을 보고 싶나요? 슬라이더를 눌러서 확인해보세요
-        </div>
-    </main>
-
+    <div id="contentArea" style="margin-top: 20px; font-size: 1.2em;">
+        어느 시점에서의 bidding situation을 보고 싶나요? 슬라이더를 눌러서 확인해보세요
+    </div>
     <script>
         const slider = document.getElementById('customRange');
         const content = document.getElementById('contentArea');
@@ -58,7 +60,7 @@
         slider.addEventListener('input', typesetContent);
 
         // Initial typeset
-        typesetContent();
+        //  typesetContent(); 주석처리해야 상단 content area가 보인다
     </script>
     <p>$$S$$</p>
     <script>
@@ -69,6 +71,7 @@
         }
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="dark-mode.js"></script>
 </body>
 
 </html>
