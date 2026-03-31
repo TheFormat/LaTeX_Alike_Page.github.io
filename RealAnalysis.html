@@ -95,7 +95,29 @@
         아쉬운 게 있다면, 모든 Borel Set에 대해서 그거의 inverse image가 $\sigma$-algebra에 들어가야 한다는 것이다.<br>
         그래서, 아래 proposition을 통해서 measurable function을 확인하는게 편하다더라.
     </p>
-    
+    <div class='proposition'>
+        Suppose $N\subset \mathcal{B}(Y)$ s.t $\sigma(N) = \mathcal{B}(Y)$.<br>
+        Then, $f:X\rightarrow Y$ is M-measurable iff  $\forall B\in N, f^{-1}(B)\in M$.
+    </div>
+    <div class='proposition'>
+        $(X,M)$ : measurable space, $f:X\rightarrow Y$.<br>
+        $$N=\{B\subset Y \mid f^{-1}(B)\in M\}$$
+        Then, $N$ is a $\sigma$-algebra on $Y$.
+    </div>
+    <p> 증명은 넘어가도록 하겠다. Prop 2로 Prop 1을 증명할 수 있다.<br>
+    중요한 건, 우리는 이제 모든 Borel Set을 체크하는 대신 $N$에 있는 것들만 체크하면 된다는 것이다. 이를테면 $\mathcal{B}(\mathbb{R})$에서<br>
+    $N_{1} = \{\text{open sets}\}, N_{2} = \{(a,b)\mid a < b\}, N_{3} = \{[a,\infty)\mid a \in \mathbb{R}\}$로 잡을 때<br>
+    $\sigma(N_{1}) = \sigma(N_{2}) = \sigma(N_{3}) = \mathcal{B}(\mathbb{R})$이다.<br>
+    아래 Corollary에 의해서 continuous function은 measurable function이 된다.
+    </p>
+    <div class='corollary'>
+        If $Y = \mathbb{R}, M = \mathcal{B}(\mathbb{R})$ and $f:\mathbb{R}\rightarrow \mathbb{R}$ is continuous,
+        then $f$ is measurable. 
+    </div>
+    <p>
+    증명은 간단하다. continuous function의 정의에 의해 open set의 inverse image는 open set이 된다. 
+    그러므로 $f^{-1}(B)\in M$이 된다.<br>
+    </p>
     <script>
         MathJax = {
             tex: {

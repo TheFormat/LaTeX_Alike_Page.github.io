@@ -508,7 +508,31 @@ dl dd {
   right: -12px;
   bottom: -2px;
 }
+/* Proposition 스스로 추가*/
+.proposition {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+.proposition::before {
+  content: 'Proposition ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
 
+/* Corollary 스스로 추가*/
+.corollary {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+.corollary::before {
+  content: 'Corollary ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
 /* Definition */
 .definition {
   counter-increment: definition;
