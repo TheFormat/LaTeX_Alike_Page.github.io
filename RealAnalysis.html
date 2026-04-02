@@ -80,9 +80,12 @@
         If $A\in \mathcal{B}(X)$, then $A$ is called a Borel set.  
     </div>
     <p>
+    모든 open set, closed set, countable union들은 Borel Set이다. 즉, $\{1\}$같은 집합은  $\bar{\mathbb{R}}$의 Borel Set이 되겠다.<br>
     이제 standard topology에서의 $X = \mathbb{R}$에서 neighborhood $Br(X)$를 찾아보자.<br>
     $(a,b),(a,b],(a,\infty),(-\infty,a)$가 만드는 $\sigma$-algebra가 $\mathcal{B}(\mathbb{R})$와 같다.<br>
-    증명은 넘어가자. 얼마 안남았다. measurable space를 정의하자.
+    증명은 넘어가자. 참고로 extended real number $\bar{\mathbb{R}}$에서 open set을 잘 정의해서 표현하는 것도 가능하다.<br>
+    후술할 함수 $f$에 대해서는 $\mathbb{R}$ 대신 $\bar{\mathbb{R}}$으로 정의하겠다.<br>
+    얼마 안남았다. measurable space를 정의하자.
     </p>
     <div class='definition'>
         A pair $(X,M)$ is called a measurable space if $M$ is a $\sigma$-algebra on $X$.
@@ -105,9 +108,17 @@
         Then, $N$ is a $\sigma$-algebra on $Y$.
     </div>
     <p> 증명은 넘어가도록 하겠다. Prop 2로 Prop 1을 증명할 수 있다.<br>
-    중요한 건, 우리는 이제 모든 Borel Set을 체크하는 대신 $N$에 있는 것들만 체크하면 된다는 것이다. 이를테면 $\mathcal{B}(\mathbb{R})$에서<br>
+    중요한 건, 우리는 이제 모든 Borel Set을 체크하는 대신 $N$에 있는 것들만 체크하면 된다는 것이다.<br>
+    이를테면 $\mathcal{B}(\mathbb{R})$에서
     $N_{1} = \{\text{open sets}\}, N_{2} = \{(a,b)\mid a < b\}, N_{3} = \{[a,\infty)\mid a \in \mathbb{R}\}$로 잡을 때<br>
     $\sigma(N_{1}) = \sigma(N_{2}) = \sigma(N_{3}) = \mathcal{B}(\mathbb{R})$이다.<br>
+    Proposition 1에 의해서 $\bar{\mathbb{R}}$에서의 함수 $f$가 M-measurable한지 확인할 방법이 생겼다.
+    </p>
+    <div class = 'definition'>
+        $f : X \rightarrow \bar{\mathbb{R}}$ is M-measurable if 
+        $$\{x \mid f(x)\leq a\} = f^{-1}([-\infty,a])\in M \text{ for all } a \in \mathbb{R}$$
+    </div>
+    <p>
     아래 Corollary에 의해서 continuous function은 measurable function이 된다.
     </p>
     <div class='corollary'>
@@ -118,6 +129,18 @@
     증명은 간단하다. continuous function의 정의에 의해 open set의 inverse image는 open set이 된다. 
     그러므로 $f^{-1}(B)\in M$이 된다.<br>
     </p>
+    <p>
+        이제 measurable function의 성질을 알아보자. measurable function의 합, 곱, composition이 measurable function이 된다.<br>
+        다시말해, $f, g$가 M-measurable하면 $|f|^{p}, \frac{1}{f}$(단, $f\neq 0$), $f+g, fg, f\circ g$도 M-measurable하다.<br>
+        나아가 measurable function의 limit도 measurable function이 된다.
+            <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-1" class="sidenote-toggle" />
+            <span class="sidenote">sup, inf, limsup, liminf 모두 measurable하다. 귀찮아서 수식은 안적겠다. </span>
+    </p>
+    <div class ='theorem'>
+        Suppose $f : X\rightarrow [-\infty,\infty]$ is M-measurable. Then, there exist M-measurable simple functions $s_{1}, s_{2},...$ such that
+        (추후작성)
+    </div>
     <script>
         MathJax = {
             tex: {
