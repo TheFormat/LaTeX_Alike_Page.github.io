@@ -44,9 +44,37 @@
     <article class="abstract">
             <h2>Abstract</h2>
             <p class="pen">
-                흠. measurable function을 잘 모르겠어서 거기서부터 시작하겠다.
+                흠. measurable function을 잘 모르겠어서 거기서부터 먼저 작성을 시작했었다.<br>
+                우선 실해석학을 배우는 이유부터 말해본다.<br>
+                우리는 모든 연속함수는 적분 가능하다는 것은 알고 있다.<br>
+                이제 우리는 여기서 거의 모든 함수는 적분가능하다고 말하고 싶다. 그러기 위해서는 우선 측도를 assign해야 한다더라.<br>
+                일반 measure에 대해 정의를 하고 Lebesgue 적분에 대해서 배워보겠다.
             </p>
         </article>
+    <p>
+        우선 이 과목을 잘하려면 해석학을 정말 잘해야 한다더라. sup과 inf에 대해서 짚고 넘어가자.<br>
+        Supremum(the least upper bound)<br>
+        Let $A\subset \mathbb{R}$. Then, <br>
+        <ol>
+            <li>$a\in [-\infty,\infty]$ is an upper bound of $A$ if $x\leq a$ $\forall x\in A$</li>
+            <li>$a$ is a supremum of A if $a$ is an upper bound of $A$, and $a\leq b$ if $b$ is an upper bound of $A$.</li>
+        </ol>
+        <br>
+        중요한 성질 하나 짚고 넘어가자. $a = \sup A, A \neq \emptyset$. Then,
+        $$\forall \epsilon >0, \exists x\in A \text{ s.t } x\geq a-\epsilon$$
+        This is same to
+        $$\exists x_{n}\in A \text{ s.t } x_{n}\uparrow a$$
+        $a$가 $\sup$이라는 소리는 항상 $a-\epsilon$보다 크거나 같은 A 원소를 찾을 수 있다는 소리이자, $a$로 증가하는 수열을 잡을 수 있다는 소리이다.<br>
+        이제 우리는 measure $\lambda$를 정의할 것이다. $\lambda : A \mapsto \lambda(A)\in [0,\infty]$는 set function이다. 정리해서 말하자면
+    </p>
+    <p>
+        Roughly speacking, a measure $\lambda$ on $X$ is a rule which assigns a number to subsets on $X$ s.t<br>
+        <ol>
+            <li>$\lambda(\emptyset) = 0$</li>
+            <li>$\lambda(\bigcup\limits_{k=1}^{\infty}A_{k}) = \sum\limits_{k=1}^{\infty}\lambda(A_{k})$ if $A_{i}\cap A_{j} = \emptyset$ for $i\neq j$</li>
+        </ol>
+        countable additivity 도 만족하는 set function이 되겠다.
+    </p>
     <div class='definition'>
         Let $M$ be a collection of subsets of $X$. That is, $M\subset 2^{X}.$<br>
         $M$ is an algebra(field) if<br>
