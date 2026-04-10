@@ -101,7 +101,12 @@
         $$\lambda(K) = \inf\{\lambda(G) \mid K\subset G \text{ where } G\text{ is open}\}$$
         이 정의해서 조심해야 할 점은 $K$가 special polygon일 때에는 measure가 두 가지로 정의된다는 점이다. 
         두 정의가 일치하는지 확인해야 한다는 점은 명심하자. 바로 성질들로 넘어가겠다.<br>
-        <em>Stage 5. </em>$\mathcal{L}_{0} = $ 추후작성 <br>
+        <em>Stage 5. </em>$$\mathcal{L}_{0} = \{A\subset \mathbb{R}^{n}\mid \lambda^{*}(A)<\infty, \lambda^{*}(A) = \lambda_{*}(A)\}$$
+        $$\text{If }A\in \mathcal{L}_{0}, \text{ define } \lambda(A) = \lambda^{*}(A) = \lambda_{*}(A)$$
+        갑자기 이상한 notation이 나왔다. 이는 $\mathbb{R}^{n}$의 모든 subset들로 $\lambda$를 확장하기 위해 소개된 것으로<br>
+        $\lambda^{*}(A) = \inf\{\lambda(G) \mid A \subset G^{open}\}$은 outer measure<br>
+        $\lambda_{*}(A) = \sup\{\lambda(K) \mid K^{compact} \subset A\}$은 inner measure 라고 한다. <br>
+        물론, 위와 같이 제대로 정의가 되는지에 대해서는 체크가 필요하다.
     </p>
     <div class='definition'>
         Let $M$ be a collection of subsets of $X$. That is, $M\subset 2^{X}.$<br>
