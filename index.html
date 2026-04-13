@@ -100,6 +100,26 @@
                     document.getElementById("result").innerText = `${fib} is the ${n}th Fibonacci number!`;
                 }
             </script>
+            <details>
+                <summary>Proof.(접기디폴트, 펼치기 기능 추가)</summary>
+                <div class='proof'> Here's one way to derive it.
+                    \begin{align*}
+                    \begin{bmatrix}
+                    1 & 1 \\
+                    1 & 0
+                    \end{bmatrix}^n
+                    \begin{bmatrix}
+                    F_1 \\
+                    F_0
+                    \end{bmatrix}
+                    &=
+                    \begin{bmatrix}
+                    F_{n+1} \\
+                    F_n
+                    \end{bmatrix}
+                    \end{align*}
+                </div>
+                </details>
             <div class='proof'>Here's one way to derive it.
                 \begin{align*}
                 \begin{bmatrix}
