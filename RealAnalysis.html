@@ -66,10 +66,13 @@
             <li>$\lambda(\emptyset) = 0$</li>
             <li>$\lambda(\bigcup\limits_{k=1}^{\infty}A_{k}) = \sum\limits_{k=1}^{\infty}\lambda(A_{k})$ if $A_{i}\cap A_{j} = \emptyset$ for $i\neq j$</li>
         </ol>
-        countable additivity 도 만족하는 set function이 되겠다.
+        countable additivity 도 만족하는 set function이 되겠다.<br>
+        <em>Ex 1. </em>Dirac delta function이나 <em>Ex 2. </em>Counting Measure에서 정의되는 set function들은 다 countable additivity를 만족한다.<br>
+        $X$ : a given set containing $x_{0}$. Then, the dirac delta function is
+        $$\lambda(A) = \begin{cases} 1 & \text{if } x_{0}\in A \\ 0 & \text{if } x_{0}\notin A \end{cases}$$
     </p>
     <p>
-        Example 3에서는 우리가 배울 <mark>Lebesgue measure</mark> on $\mathbb{R}^{n}$를 확인할 수 있다.
+        <em>Example 3.</em>여기서는 우리가 배울 <mark>Lebesgue measure</mark> on $\mathbb{R}^{n}$를 확인할 수 있다.
         $$A = [a_{1},b_{1}]\times [a_{2},b_{2}]\times \cdots \times [a_{n},b_{n}](-\infty < a_{i} \leq b_{i} <
         \infty, i=1,2,\ldots,n)$$
         $$\lambda(A) = \prod_{i=1}^{n}(b_{i}-a_{i}) = \text{volume of } A$$
@@ -78,30 +81,118 @@
     </p>
     
     <h2>A construction of Lebesgue measure on $\mathbb{R}^{n}$</h2>
+    <h3>Stage 0. $\lambda(\emptyset) = 0$</h3>
+    <h3>Stage 1. Special rectangles</h3>
     <p>
-        <em>Stage 0. </em>$\lambda(\emptyset) = 0$<br>
-        <em>Stage 1. </em>"special rectangle" $I = [a_{1},b_{1}]\times [a_{2},b_{2}]\times \cdots \times [a_{n},b_{n}]$
+        $I = [a_{1},b_{1}]\times [a_{2},b_{2}]\times \cdots \times [a_{n},b_{n}]$
         $$\lambda(I) \equiv \prod_{i=1}^{n}(b_{i}-a_{i}) = \text{volume of } I$$
         Remark 하나를 보자. special rectange $I$가 non-overlapping special rectangles의 finite union이면
         $\lambda(I) \equiv \sum_{i=1}^{n} Vol(I_i) = \sum_{i=1}^{n} \lambda(I_i)$임을 알 수 있다.<br>
-        여기서 non-overlapping이라 함은 $I_{i}\cap I_{j} = \emptyset$ for $i\neq j$를 의미한다.<br>
-        <em>Stage 2. </em>"special polygon" A set $P$ is a special polygon if it is a finite union of 
+        여기서 non-overlapping이라 함은 $I_{i}^{\circ}\cap I_{j}^{\circ} = \emptyset$ for $i\neq j$를 의미한다.
+    </p>
+    <h3>Stage 2. Special polygons</h3>
+    <p>
+        A set $P$ is a special polygon if it is a finite union of 
         special rectangles of positive measure. That is, $P = \bigcup\limits_{i=1}^{n}I_{i}$ such that 
         $\lambda(I_{i}) > 0$ for $i=1,2,...,n$.
         $$\lambda(P) \equiv \sum_{j=1}^{m} \lambda(I'_{j})$$
         갑자기 $I'$가 등장했다. 이는 $P$가 위의 Remark로 인해 non-overlapping special rectangle $I_{j}'$로 분해할 수 있기 때문이다.<br>
-        넘어가기 전 fuction이 되는지를 체크해야 할 것이다. 다른 non-overlapping하는 $I'$들에 대해서 $\sum$이 같음을 보이면 된다. 혼자하자.<br>
+        넘어가기 전 fuction이 되는지를 체크해야 할 것이다. 다른 non-overlapping하는 $I'$들에 대해서 $\sum$이 같음을 보이면 된다. 혼자 하는걸로 하고,<br>
+        다음 성질들을 보자.
+    </p>
+    <h4>Properties of special polygons</h4>
+    <p>
+        <b>P1</b> : $P_{1}\subset P_{2} \Rightarrow \lambda(P_{1}) \leq \lambda(P_{2})$<br>
+        <b>P2</b> : $P_{1},P_{2}$ are non-overlapping $\Rightarrow \lambda(P_{1}\cup P_{2}) = \lambda(P_{1}) + \lambda(P_{2})$<br>
+    </p>
+    <h3>Stage 3. Open sets</h3>
+    <p>
         open set $(0,1) = \bigcup\limits_{n=2}^{\infty}[\frac{1}{n},1-\frac{1}{n}]$을 보자. open set들은 안에서부터 만들어나간다.
         극한이 있는지 없는지는 모르니 measure을 $\sup$로 정의하자.<br>
-        <em>Stage 3. </em>Let $G$ be a non-empty open set. Then,
+        Let $G$ be a non-empty open set. Then,
         $$\lambda(G) = \sup\{\lambda(P) \mid P\subset G\}>0$$
         Note that if $G$ is open, then $\lambda(G)$ = 0 iff $G = \emptyset$. 
-        <br>
-        <em>Stage 4. </em>Let $K$ be a compact set. Then,
+    </p>
+    <h4>Properties of open sets</h4>
+    <p>
+        <b>O1</b> $0\leq \lambda(G) \leq \infty$<br>
+        <b>O2</b> $\lambda(G) = 0 \text{ iff } G = \emptyset$<br>
+        <b>O3</b> $\lambda(\mathbb{R}^{n}) = \infty$<br>
+        <b>O4</b> $G_{1}\subset G_{2} \Rightarrow \lambda(G_{1}) \leq \lambda(G_{2})$<br>
+        <b>O5</b> $G_{k}$ : open. $\Rightarrow \lambda(\bigcup\limits_{k=1}^{\infty}G_{k}) \leq \sum\limits_{k=1}^{\infty}\lambda(G_{k})$<br>
+    </p>
+    <details>
+        <summary>Proof of O5</summary>
+        <div class='proof'> It suffices to show that $\lambda(P)\leq \sum\limits_{k=1}^{\infty}\lambda(G_{k})$ for any
+            special polygon $P\subset \bigcup\limits_{k=1}^{\infty}G_{k}$. 이를 증명하기 위한 아이디어를 소개하겠다.<br>
+            Decompose $P = \bigcup\limits_{j=1}^{\infty}P_{j}$ such that $P_{j}$ are non-overlapping polygons, 
+            only finite $P_{j}$'s are non-empty, and $P_{j}\subset G_{j}$ for each $j$.<br>
+            이게 가능하다면 아래처럼 해서 증명이 끝난다.
+            $$\lambda(P) = \sum\limits_{j=1}^{\infty}\lambda(P_{j})\leq \sum\limits_{j=1}^{\infty}\lambda(G_{j})$$
+            문제는, 이걸 어떻게 분해하냐는 것이다. 아이디어만 제시하겠다.<br>
+            compact한 $P$에서 임의의 원소 $x$에 대해 $\epsilon$-ball을 $G_{k}$안에 넣을 수 있다. 이때<br>
+            non-overlapping하고 $diam(I_{j})<\epsilon$인 special rectangle $I_{j}$를 잡아서 $P_{j} = \bigcup I_{j}$로 잡으면 된다.<br>
+            그러면 어떠한 $k$에 대해서 $I_{j}\subset G_{k}$이니까, 새로운 non-overlapping하는 $P_{k} = \bigcup I_{j}$들을 만들 수 있다.
+            ($I_{j}\not\subset(G_{1}\cup G_{2}\cup \cdots \cup G_{k-1}),I_{j}\subset G_{k}$하게 잡으면 된다)<br>
+        </div>
+    </details>
+    <p>
+        <b>O6</b> If $G_{k}$ are disjoint, then 
+        $\lambda(\bigcup\limits_{k=1}^{\infty}G_{k}) = \sum\limits_{k=1}^{\infty}\lambda(G_{k})$
+    </p>
+    <details>
+        <summary>Proof of O6</summary>
+        <div class='proof'> We only need to show $\sum\limits_{k=1}^{N}\lambda(G_{k}) \leq \lambda(\bigcup\limits_{k=1}^{\infty}G_{k})$.<br>
+            Let polygon $P_{k}\subset G_{k}, k=1,2,\ldots,N$. Then, $\bigcup\limits_{k=1}^{N}P_{k}\subset \bigcup\limits_{k=1}^{\infty}G_{k}$.<br>
+            where $P_{k}$'s are non-overlapping. Then, by the definition of $\lambda$ in open sets and P2,
+            $$\lambda(P_{1}) + \lambda(P_{2}) + \cdots + \lambda(P_{N}) = \sum\limits_{k=1}^{N}\lambda(P_{k})= 
+            \lambda(\bigcup\limits_{k=1}^{N}P_{k}) \leq \lambda(\bigcup\limits_{k=1}^{\infty}G_{k})$$
+            여기서 $P_{2}$에서 $P_{N}$까지 고정시키고 $P_{1}$에 $\sup$을 취하면 자연스럽게 $\lambda(G_{1})$이 나오고, 이를 반복하면 결국
+            $$\sum\limits_{k=1}^{N}\lambda(G_{k}) \leq \lambda(\bigcup\limits_{k=1}^{\infty}G_{k})$$
+        </div>
+    </details>
+    <p>
+        <b>O7</b> $\lambda(P^{\circ}) = \lambda(P)$.
+    </p>
+    <details>
+        <summary>Proof of O7</summary>
+        <div class='proof'>
+        </div>
+    </details>
+    <h4>Stage 4. Compact sets</h4>
+    <p>
+        Let $K$ be a compact set. Then,
         $$\lambda(K) = \inf\{\lambda(G) \mid K\subset G \text{ where } G\text{ is open}\}$$
         이 정의해서 조심해야 할 점은 $K$가 special polygon일 때에는 measure가 두 가지로 정의된다는 점이다. 
-        두 정의가 일치하는지 확인해야 한다는 점은 명심하자. 바로 성질들로 넘어가겠다.<br>
-        <em>Stage 5. </em>$$\mathcal{L}_{0} = \{A\subset \mathbb{R}^{n}\mid \lambda^{*}(A)<\infty, \lambda^{*}(A) = \lambda_{*}(A)\}$$
+        두 정의가 일치하는지 확인해야 한다는 점은 명심하자. 바로 성질들로 넘어가겠다.
+    </p>
+    <p>
+        <b>C1</b> $0\leq \lambda(K) \leq \infty$ for non-empty $K$.<br>
+        <b>C2</b> $K_{1}\subset K_{2} \Rightarrow \lambda(K_{1}) \leq \lambda(K_{2})$<br>
+        <b>C3</b> $\lambda(K_{1}\cup K_{2}) \leq \lambda(K_{1}) + \lambda(K_{2})$<br>
+    </p>
+    <details>
+        <summary>Proof of C3(github copilot이 작성)</summary>
+        <div class='proof'> Let $G_{1}, G_{2}$ be open sets such that $K_{1}\subset G_{1}, K_{2}\subset G_{2}$. Then, $K_{1}\cup K_{2}\subset G_{1}\cup G_{2}$.<br>
+            By O5,
+            $$\lambda(K_{1}\cup K_{2}) \leq \lambda(G_{1}\cup G_{2}) \leq \lambda(G_{1}) + \lambda(G_{2})$$
+            여기서 $G_{1}$과 $G_{2}$에 $\inf$를 취하면 결국 $\lambda(K_{1}\cup K_{2}) \leq \lambda(K_{1}) + \lambda(K_{2})$가 된다.
+        </div>
+    </details>
+    <p>
+        <b>C4</b> If $K_{1}, K_{2}$ are disjoint, then $\lambda(K_{1}\cup K_{2}) = \lambda(K_{1}) + \lambda(K_{2})$<br>
+    </p>
+    <details>
+        <summary>Proof of C4</summary>
+        <div class='proof'>We will show that for any open $G\supset (K_{1}\cup K_{2}), \lambda(K_{1})+\lambda(K_{2}) \leq \lambda(G)$.<br>
+            Let $K_{1}\cup K_{2} \subset G^{open}.$ Then,
+            $$\exists G_{1},G_{2}\text{(disjoint) such that } K_{1}\subset G_{1}, K_{2}\subset G_{2}, G_{1}\cup G_{2} \subset G$$
+        </div>
+    </details>
+
+    <h4>Stage 5. $\mathcal{L}_{0}$</h4>
+    <p>
+        $$\mathcal{L}_{0} = \{A\subset \mathbb{R}^{n}\mid \lambda^{*}(A)<\infty, \lambda^{*}(A) = \lambda_{*}(A)\}$$
         $$\text{If }A\in \mathcal{L}_{0}, \text{ define } \lambda(A) = \lambda^{*}(A) = \lambda_{*}(A)$$
         갑자기 이상한 notation이 나왔다. 이는 $\mathbb{R}^{n}$의 모든 subset들로 $\lambda$를 확장하기 위해 소개된 것으로<br>
         $\lambda^{*}(A) = \inf\{\lambda(G) \mid A \subset G^{open}\}$은 outer measure<br>
@@ -116,8 +207,12 @@
         Suppose $\lambda^{*}(A)<\infty$. Then,
         $$A \in \mathcal{L}_{0} \Longleftrightarrow \forall \epsilon > 0, \exists K^{compact}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus K)<\epsilon $$
     </div>
+    <h4>Stage 6. Arbitrary measurable sets</h4>
     <p>
-        <em>Stage 6. </em>..<br>
+        우리는 $\mathbb{R}^{n}$을 $\mathcal{L}$에 포함시키고 싶다.<br>
+        We say $A$ is measurable if $A\cap M \in \mathcal{L}_{0}$ for any $M\in \mathcal{L}_{0}$.
+        $$\mathcal{L} = (\text{collection of all measurable sets})$$
+        For all $A\in \mathcal{L}$, define $\lambda(A) = \sup\{\lambda(A\cap M)\mid M\in \mathcal{L}_{0}\}$<br>
     </p>
     <div class='definition'>
         Let $M$ be a collection of subsets of $X$. That is, $M\subset 2^{X}.$<br>
