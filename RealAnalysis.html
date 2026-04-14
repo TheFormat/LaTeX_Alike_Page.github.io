@@ -450,11 +450,57 @@
             <input type="checkbox" id="sn-1" class="sidenote-toggle" />
             <span class="sidenote">sup, inf, limsup, liminf 모두 measurable하다. 귀찮아서 수식은 안적겠다. </span>
     </p>
+    <p>우리는 모든 함수들을 simple function으로 근사할 것이다. 그러기 위해서는 simple function이 뭔지와 증명에 필요한 몇가지 notation들을 알아야 한다.<br>
+        먼저 indicator function을 소개하겠다.<br>
+        Let $(X,M)$ be a measurable space, and $A\subset X$. Then, 
+        $\mathbb{1}_{A}(x) = \begin{cases} 
+            1 & \text{if } x \in A, \\
+            0 & \text{if } x \notin A.
+        \end{cases}$<br>
+        다음은 step(simple) function이다. $s = \sum\limits_{i=1}^{n}\alpha_{i}\mathbb{1}_{A_{i}}(x)$ 
+        where $\alpha_{i}\in [-\infty,\infty]$, $A_{i}\subset X$ for each $i$.<br>
+        We call this a finite linear combination of indicator functions. Know that we can decompose $s$ as follows.<br>
+        $$s = \sum\limits_{j=1}^{m}\beta_{j}\mathbb{1}_{B_{j}}(x)
+        \text{ where }B_{j}s\text{ are disjoint and }\beta_{j}\in [-\infty,\infty]\text{, distinct.}$$
+        indicator function과 simple function이 measurable한 것과 set $A, B_{j} \in M$이 동치인 점은 알고 넘어가자. 증명은 생략하겠다.<br>
+        $a\in[-\infty,\infty]$에서 $a_{+} = \max\{a,0\}, a_{-} = \max\{-a,0\}$로 두면 $a = a_{+} - a_{-}$. 나아가<br>
+        $f_{+} = (f(x))_{+}, f_{-} = (f(x))_{-}$로 두면 $f = f_{+} - f_{-}$이 된다. 이때 $f_{+}, f_{-}$는 모두 양수이다.<br>
+        이제 simple function으로 measurable function을 근사할 수 있다는 정리를 보도록 하자.
+    </p>
     <div class ='theorem'>
-        Suppose $f : X\rightarrow [-\infty,\infty]$ is M-measurable. Then, there exist M-measurable simple functions $s_{1}, s_{2},...$ such that
-        (추후작성)
+        Suppose $f : X\rightarrow [-\infty,\infty]$ is M-measurable. Then, there exist M-measurable simple functions 
+        $s_{1}, s_{2},...$ such that<br>
+        i) $\lim\limits_{n\rightarrow \infty}s_{n}(x) = f(x)$ for all $x\in X$<br>
+        ii) If $f$ is bounded, then $s_{n}\rightarrow f$ uniformly. That is, $\sup\limits_{x}|s_{n}(x)-f(x)|\rightarrow 0$ as $n\rightarrow \infty$.<br>
+        iii) If $f\geq 0$, then $s_{1}(x)\leq s_{2}(x) \leq \cdots$($s_{n}\uparrow f$).
     </div>
-
+    <details>
+        <summary>$f\geq 0$인 경우만 체크하자. 일반화하기 위해서는 $f = f_{+} - f_{-}$로 하고 각 $f$들로 가는 $s_{n}$들을 찾으면 된다.</summary>
+        <div class='proof'>Assume $f\geq 0$. Define $s_{n}(x) = 
+            \begin{cases}
+                k2^{-n} & \text{if } k2^{-n} \leq f(x) < (k+1)2^{-n} \text{ for some } k = 0,1,...,n2^{n}\\
+                n & \text{if } f(x) \geq n
+            \end{cases}$<br>
+            Know that $s_{n}(x)\leq f(x), s_{n}(x) \leq s_{n+1}(x)$, and $|f(x)-s_{n}(x)|\leq 2^{-n}$ if $f(x) \leq n$.<br>
+            $s_{n}$이 simple function인지는 나중에 보고, 이렇게 정의된 함수는 위 조건들을 모두 만족하게 된다. 하나씩 살펴보자.<br>
+            i) If $|f(x)| \neq \infty$, then, $f(x)\leq n$ for some $n$. Then, $|f(x)-s_{m}(x)\leq 2^{-m}$ if $m\geq n$.<br>
+            If $|f(x)| = \infty$, then $s_{n}(x) = n$.<br>
+            ii) If $\sup|f(x)|\leq n$, then $\sup|f(x)-s_{m}(x)|\leq 2^{-m}$ for $m\geq n$.<br>
+            iii)은 위에서 이미 보였다. $s_{n}$을 증가하면서도, bounded될 수 있게 잘 만들었다.<br>
+            $A_{nk} = \{x\mid f(x) \in [k2^{-n}, (k+1)2^{-n})\}, k=0,1,...,n2^{n}$, $A_{n} = \{x\mid f(x) > n\}$로 두면<br>
+            두 set은 measurable set이 되고 이를 이용해
+            $$s_{n} = \sum\limits_{k=0}^{n2^{-n}}k2^{-n}\mathbb{1}_{A_{nk}} + n\mathbb{1}_{A_{n}}$$
+            으로 위에 정의에 딱 들어맞는 simple function을 만들 수 있다. 당여하게도, M-measurable하다.
+        </div>
+    </details>
+    <h3>General Measure Space</h3>
+    <p>이번에는 null set들 다 포함하는, 그런 measure space를 만들 것이다.(왜?)</p>
+    <div class = 'definition'>
+        Let $(X,M)$ be a measurable space. A set function $\mu$ on $M$ is called a positive measure if<br>
+        i) $\mu(\emptyset) = 0$<br>
+        ii) $\mu(\bigcup\limits_{n=1}^{\infty}A_{n}) = \sum\limits_{n=1}^{\infty}\mu(A_{n})$ for disjoint $A_{n}\in M$<br>
+        We say $(X,M,\mu)$ is a measure space.
+    </div>
     <h2>Integration</h2>
     <p>
         Let $(X,M,\mu)$ be a measure space. 
