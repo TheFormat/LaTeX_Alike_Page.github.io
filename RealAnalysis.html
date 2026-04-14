@@ -230,7 +230,7 @@
         </div>
     </details>
     <p>
-        <b>*4</b> If $A_{k}$ are disjoint, then $\lambda^{*}(\bigcup\limits_{k=1}^{\infty}A_{k})
+        <b>*4</b> If $A_{k}$ are disjoint, then $\lambda_{*}(\bigcup\limits_{k=1}^{\infty}A_{k})
         \geq \sum\limits_{k=1}^{\infty}\lambda_{*}(A_{k})$<br>
     </p>
     <details>
@@ -243,7 +243,12 @@
     </p>
     <details>
         <summary>Proof of *5</summary>
-        <div class='proof'>.
+        <div class='proof'>First, suppose tha $A$ is open. Then, easily, $\lambda^{*}(A) = \lambda(A)$.
+            $$\lambda(A) \equiv \sup\{\lambda(P) \mid P\subset A\} \leq \sup\{\lambda(K) \mid K\subset A\} = \lambda_{*}(A)$$
+            Then, by *1, $\lambda_{*}(A) = \lambda^{*}(A) = \lambda(A)$.<br>
+            Next, suppose that $A$ is compact. Then, $\lambda_{*}(A) = \lambda(A)$.
+            $$\lambda(A) \equiv \inf\{\lambda(G) \mid A\subset G\} =\lambda^{*}(A)$$
+            여기서 open일 때 $P$는 polygon이지만, compact일 때는 $G$가 open set임을 활용하여 증명했다는 점에 주목하자.
         </div>
     </details>
     <p>
@@ -258,13 +263,103 @@
         <div class='proof'>.
         </div>
     </details>
+    <div class = 'corollary'>
+        If $A,B \in \mathcal{L}_{0}$, then $A\cup B, A\cap B, A\setminus B \in \mathcal{L}_{0}$.
+    </div>
+    <details>
+        <summary>If we only prove that $A\setminus B \in \mathcal{L}_{0}$, 
+        then $A\cap B = A\setminus (A\setminus B), A\cup B = (A\setminus B)\cup B \in \mathcal{L}_{0}$ follows directly.</summary>
+        <div class='proof'>For given $\epsilon > 0$, we choose compact $K_{1}, K_{2}$ and open $G_{1}, G_{2}$ such that 
+            $K_{1}\subset A \subset G_{1}, K_{2}\subset B \subset G_{2}$ and 
+            $\lambda(G_{1}\setminus K_{1}) < \frac{\epsilon}{2}, \lambda(G_{2}\setminus K_{2}) < \frac{\epsilon}{2}$. 
+            Then, $K_{1}\setminus G_{2} \subset A\setminus B \subset G_{1}\setminus K_{2}$ and 
+            $(G_{1}\setminus K_{2})\setminus (K_{1}\setminus G_{2})\subset (G_{1}\setminus K_{1})\cup (G_{2}\setminus K_{2})$.<br>
+            $A\setminus B$는 결국 open set과 compact set 사이에 끼고, 그 둘의 차이는 epsilon보다 작게 만들 수 있게 된다. 결국 O4에 의해
+            $$\lambda((G_{1}\setminus K_{2})\setminus (K_{1}\setminus G_{2})) < \epsilon$$
+        </div>
+    </details>
+    <p>이제 정말 다 왔다.</p>
+    <div class='theorem'> Theorem on countably additivity<br>
+        Suppose $A_{k}\in \mathcal{L}_{0}$ and $\lambda^{*}(\bigcup\limits_{k=1}^{\infty}A_{k}) < \infty$. 
+        Then, $A =-\bigcup\limits_{k=1}^{\infty}A_{k}\in \mathcal{L}_{0}$ and $\lambda(A) \leq \sum\limits_{k=1}^{\infty}\lambda(A_{k})$.<br>
+        Also, if $A_{k}$ are disjoint, then $\lambda(A) = \sum\limits_{k=1}^{\infty}\lambda(A_{k})$.
+    </div>
+    <details>
+        <summary>Click to open the proof of this one</summary>
+        <div class='proof'>Suppose $A_{k}$'s are disjoint, then by *3 and *4,
+            $$\lambda^{*}(A) = \lambda^{*}(\cup A_{k}) \leq \sum\limits_{k=1}^{\infty}\lambda^{*}(A_{k})=
+            \sum\limits_{k=1}^{\infty}\lambda_{*}(A_{k})\leq \lambda_{*}(\cup A_{k}) = \lambda_{*}(A)$$
+            일반적으로는 새로운 $B_{1} = A_{1}, B_{2} = A_{2}\setminus A_{1}, B_{3} = A_{3}\setminus (A_{1}\cup A_{2}), \ldots$를 잡아서
+            disjoint하게 만들고 증명하면 된다. 왜?, $B_{k}\in \mathcal{L}_{0}, \cup B_{k} = A$이기 때문이다. 더 하진 않겠다.
+        </div>
+    </details>
     <h4>Stage 6. Arbitrary measurable sets</h4>
     <p>
         우리는 $\mathbb{R}^{n}$을 $\mathcal{L}$에 포함시키고 싶다.<br>
         We say $A$ is measurable if $A\cap M \in \mathcal{L}_{0}$ for any $M\in \mathcal{L}_{0}$.
         $$\mathcal{L} = (\text{collection of all measurable sets})$$
         For all $A\in \mathcal{L}$, define $\lambda(A) = \sup\{\lambda(A\cap M)\mid M\in \mathcal{L}_{0}\}$<br>
+        이러한 proposition도 있다.
     </p>
+    <div class='proposition'>
+        Suppose $\lambda^{*}(A) < \infty$. Then, $A\in \mathcal{L} \Leftrightarrow A\in \mathcal{L}_{0}$.<br>
+        유한하면 사실상 두개가 같다는 뜻이다. 증명은 쉽다. $\Leftarrow$는 모든 $k$에 대해 $B(0,k)\in \mathcal{L}_{0}$임을 이용해서 증명하면 된다.
+    </div>
+    <p><em>Properties of Lebesgue Measure</em><br>
+        <b>M1</b> $A \in \mathcal{L} \Rightarrow A^{C}\in \mathcal{L}$<br>
+        <b>M2</b> $A_{n} \in \mathcal{L} \Rightarrow \bigcup\limits_{n}A_{n}\in \mathcal{L}$<br>
+        <b>M3</b> $A,B \in \mathcal{L} \Rightarrow A\setminus B \in \mathcal{L}$<br>
+        이러면 자동으로 intersection에서도 닫히게 된다. 뒤에 더 중요한 성질들이 나오니 증명은 추후작성하거나 생략하겠다.<br>
+        <b>M4</b> $A_{k} \in \mathcal{L}$, then $\lambda(\cup A_{k})\leq \sum\limits_{k=1}^{\infty}\lambda(A_{k})$, and 
+        the equality holds if $A_{k}$'s are disjoint.<br>
+    </p>
+    <details>
+        <summary>Proof of M4</summary>
+        <div class='proof'>.
+        </div>
+    </details>
+    <p>
+        <b>M5 Continuity on increasing sets</b> <br>
+        Suppose $A_{k}\in \mathcal{L}, A_{k}\subset A_{k+1}$. Then, 
+        $\lim\limits_{k\rightarrow \infty}\lambda(A_{k}) = \lambda(\bigcup\limits_{k=1}^{\infty}A_{k})$
+    </p>
+    <details>
+        <summary>Proof of M5</summary>
+        <div class='proof'>.
+        </div>
+    </details>
+    <p>
+        <b>M6 Continuity on decreasing sets</b> <br>
+        Suppose $A_{k}\in \mathcal{L}, A_{k}\supset A_{k+1}$, and $\lambda(A_{1}) < \infty$. Then, 
+        $\lim\limits_{k\rightarrow \infty}\lambda(A_{k}) = \lambda(\bigcap\limits_{k=1}^{\infty}A_{k})$<br>
+        무한이면 안되는 점에 유의하자.
+    </p> 
+    <details>
+        <summary>Proof of M6</summary>
+        <div class='proof'>.
+        </div>
+    </details>
+    <p>
+        <b>M7 </b> All open and closed sets are measurable.<br>
+        <b>M8 </b> If $\lambda^{*}(A) = 0$, then $A\in \mathcal{L}$.<br>
+        <b>M9 </b> $A\in \mathcal{L} \Leftrightarrow \forall \epsilon > 0, \exists F^{closed}\subset A \subset G^{open} \text{ s.t } 
+        \lambda(G\setminus F) < \epsilon$
+    </p>
+    <details>
+        <summary>Proof of M9</summary>
+        <div class='proof'>.
+        </div>
+    </details>
+    <p>
+        <b>M10</b> If $A\in \mathcal{L}$, then $\lambda(A) = \lambda^{*}(A) = \lambda_{*}(A)$.<br>
+        $A \in \mathcal{L}_{0}$이면 당연하니까, $\lambda^{*}(A) = \infty$인 경우만 체크해보자.
+    </p>
+    <details>
+        <summary>Assume $\lambda^{*}(A) = \infty$ and $\lambda(A) < \infty$.</summary>
+        <div class='proof'>.
+        </div>
+    </details>
+    <h2>Algebra of Sets and Measurable Functions</h2>
     <div class='definition'>
         Let $M$ be a collection of subsets of $X$. That is, $M\subset 2^{X}.$<br>
         $M$ is an algebra(field) if<br>
