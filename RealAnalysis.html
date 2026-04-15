@@ -521,10 +521,20 @@
     </p>
     <details>
         <summary>$\mathcal{L}$이 뭔지를 잘 생각해보자. collection of all measurable set이다.</summary>
-        <div class='proof'>Recall $A\in \mathcal{L} \Leftrightarrow \forall \epsilon > 0, 
+        <div class='proof'>We will show $\overline{\mathcal{B}(\mathbb{R}^{n})} \supset \mathcal{L}$ first.<br>
+        Recall $A\in \mathcal{L} \Leftrightarrow \forall \epsilon > 0, 
         \exists F^{closed}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus F) < \epsilon$<br>
         For each $n$, take $F_{n}^{closed}\subset B \subset G_{n}^{open}, \lambda(G_{n}\setminus F_{n}) < \frac{1}{n}$.
-        <!--Then, $B\cup (G_{n}\setminus F_{n})\in \mathcal{B}(\mathbb{R}^{n})$ and $\lambda(B\cup (G_{n}\setminus F_{n})) < \frac{1}{n}$.<br>-->
+        Know that $\cup F_{n} \in \mathcal{B}(\mathbb{R}^{n})$. Take $A =  \cup F_{n}$, $C = \cap G_{n}$. Then,
+        $B = A\cup (B\setminus A)$ where $B\setminus A\subset C\setminus A, \lambda(C\setminus A) = 0$.<br>
+        왜? $C\setminus A \subset G_{n}\setminus A \subset G_{n}\setminus F_{n}$이기 때문이다. <br>
+        $A$가 Borel set이고 $B\setminus A$가 null set이므로 $B\in \overline{\mathcal{B}(\mathbb{R}^{n})}$이 된다.<br>
+        Next, we will show $\overline{\mathcal{B}(\mathbb{R}^{n})} \subset \mathcal{L}$. 
+        Take $A\cup N\in \overline{\mathcal{B}(\mathbb{R}^{n})}$ where $A\in \mathcal{B}(\mathbb{R}^{n}), N$ is a null set. 
+        Then, $\exists B\in \mathcal{B}(\mathbb{R}^{n})$ such that $N\subset B$ and $\lambda(B) = 0$. 
+        Since $A\cup B\in \mathcal{B}(\mathbb{R}^{n})$, we can take $F^{closed}\subset A\cup B \subset G^{open}$ such that 
+        $\lambda(G\setminus F) < \epsilon$. Then, $A\cup N = (A\cup B)\cup (N\setminus A)$. 
+        Since $N\setminus A \subset B$, $\lambda((A\cup B)\setminus F) < \epsilon$. Therefore, $A\cup N$ is measurable.(github copilot이 작성)
         </div>
     </details>
     <h2>Integration</h2>
