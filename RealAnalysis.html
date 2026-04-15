@@ -490,7 +490,7 @@
             $A_{nk} = \{x\mid f(x) \in [k2^{-n}, (k+1)2^{-n})\}, k=0,1,...,n2^{n}$, $A_{n} = \{x\mid f(x) > n\}$로 두면<br>
             두 set은 measurable set이 되고 이를 이용해
             $$s_{n} = \sum\limits_{k=0}^{n2^{-n}}k2^{-n}\mathbb{1}_{A_{nk}} + n\mathbb{1}_{A_{n}}$$
-            으로 위에 정의에 딱 들어맞는 simple function을 만들 수 있다. 당여하게도, M-measurable하다.
+            으로 위에 정의에 딱 들어맞는 simple function을 만들 수 있다. 당연하게도, M-measurable하다.
         </div>
     </details>
     <h3>General Measure Space</h3>
@@ -501,6 +501,32 @@
         ii) $\mu(\bigcup\limits_{n=1}^{\infty}A_{n}) = \sum\limits_{n=1}^{\infty}\mu(A_{n})$ for disjoint $A_{n}\in M$<br>
         We say $(X,M,\mu)$ is a measure space.
     </div>
+    <p>
+        A set $N$ is called a null set if $\exists B\in M$ such that $N\subset B$ and $\mu(B) = 0$.<br>
+        \begin{align*}
+            \bar{M} &= \{A\cup N \mid A\in M, N : \text{ null set}\}\supset M\\
+            &= \{B\mid \exists C_{1}, C_{2}\in M \text{ such that } C_{1}\subset B\subset C_{2}, \mu(C_{1}) = \mu(C_{2})\}
+        \end{align*}
+        $N$이 굳이 M에 안들어가는 경우에도 크기를 0으로 만들어줄 수 있다. 즉,<br>
+        For $A\cup N, A\in M$, and $N$ is a null set, define $\lambda(A\cup N) = \lambda(A)$.<br>
+        넘어가기 전, 위에 정의한 $\bar{M}$들이 서로 같은지는 스스로 확인하고 넘어가자. 
+    </p>
+    <div class = 'proposition'><br>
+        1. $\bar{M}$ is a $\sigma$-algebra.<br>
+        2. $\mu$ is a measure on $\bar{M}$.<br>
+        위의 정의들을 잘 활용하면 증명은 금방 되기에 넘어가겠다. 
+    </div>
+    <p>중요한 예시 하나를 보자.<br>
+        <b>Ex. $(\mathbb{R}^{n}, \mathcal{B}(\mathbb{R}^{n}), \lambda)$. Claim</b> $\overline{\mathcal{B}(\mathbb{R}^{n})} = \mathcal{L}$.<br>
+    </p>
+    <details>
+        <summary>$\mathcal{L}$이 뭔지를 잘 생각해보자. collection of all measurable set이다.</summary>
+        <div class='proof'>Recall $A\in \mathcal{L} \Leftrightarrow \forall \epsilon > 0, 
+        \exists F^{closed}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus F) < \epsilon$<br>
+        For each $n$, take $F_{n}^{closed}\subset B \subset G_{n}^{open}, \lambda(G_{n}\setminus F_{n}) < \frac{1}{n}$.
+        <!--Then, $B\cup (G_{n}\setminus F_{n})\in \mathcal{B}(\mathbb{R}^{n})$ and $\lambda(B\cup (G_{n}\setminus F_{n})) < \frac{1}{n}$.<br>-->
+        </div>
+    </details>
     <h2>Integration</h2>
     <p>
         Let $(X,M,\mu)$ be a measure space. 
