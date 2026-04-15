@@ -545,6 +545,29 @@
         $$\int\limits_{X}s d\mu = \sum\limits_{i=1}^{n}a_{i}\mu(A_{i})$$
         여기서, 우리는 $0*\infty \equiv 0$이라 두겠다.
     </p>
+    <div class = 'proposition'>우선, 잘 정의되는지부터 보자.<br>
+        i) The integral is well defined on $S$.<br>
+        ii) If $t,s\in S, s\leq t$, then $\int_X s d\mu \leq \int_X t d\mu$.
+    </div>
+    <details>
+        <summary>It is sufficient to show ii) to prove i).</summary>
+        <div class='proof'>Let $s = \sum\limits_{i=1}^{n}a_{i}\mathbb{1}_{A_{i}}(x)$ and $t = \sum\limits_{j=1}^{m}b_{j}\mathbb{1}_{B_{j}}(x)$.
+        </div>
+    </details>
+    <p>
+        몇개 더 있다.<br>
+        iii) $c>0, \int cs d\mu = c\int s d\mu$(holds for $c=0$ if $\int s d\mu < \infty$)<br>
+        iiii) $\int (s+t) d\mu = \int s d\mu + \int t d\mu$
+    </p>
+    <div class = 'definition'>
+        <b>Lebesgue integration of non-negative measurable functions</b><br>
+        Let $f:X\rightarrow [0,\infty]$ be measurable function. Then, we define
+        $$\int f d\mu = \sup \{\int s d\mu \mid s\in S, s\leq f\}$$
+        $\sup$은 unique하니까 well-defined하다.
+    </div>
+    <p>성질들을 알아보자.<br>
+
+    </p>
     <script>
         MathJax = {
             tex: {
