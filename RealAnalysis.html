@@ -551,13 +551,22 @@
     </div>
     <details>
         <summary>It is sufficient to show ii) to prove i).</summary>
-        <div class='proof'>Let $s = \sum\limits_{i=1}^{n}a_{i}\mathbb{1}_{A_{i}}(x)$ and $t = \sum\limits_{j=1}^{m}b_{j}\mathbb{1}_{B_{j}}(x)$.
+        <div class='proof'>Let $s = \sum\limits_{i=1}^{n}a_{i}\mathbb{1}_{A_{i}}(x)$ and $t = \sum\limits_{j=1}^{m}b_{j}\mathbb{1}_{B_{j}}(x)$.<br>
+            $\int sd\mu = \sum\limits_{i=1}^{n}a_{i}\mu(A_{i}) = \sum\limits_{i=0}^{n}a_{i}\mu(A_{i})$ where $A_{0} = X\setminus \cup A_{i}, a_{0}=0$<br>
+            The integral does not change if we add $0\mathbb{1}_{A_{0}}$ to $s$.<br>
+            Same thing goes to $t(x)$. Thus, we may assume
+            $$\bigcup_{i=0}^{n} A_i = \bigcup_{j=0}^{m} B_j = X$$
+            Then, we would need to show that $\sum\limits_{i=0}^{n}a_{i}\mu(A_{i}) = \sum\limits_{j=0}^{m}b_{j}\mu(B_{j})$.<br>
+            $\int s d\mu = \sum\limits_{i=0}^{n}a_{i}\lambda(A_{i}) = \sum\limits_{i=0}^{n}a_{i}\sum\limits_{j=0}^{m}\lambda(A_{i}\cap B_{j})$.<br>
+            $\int t d\mu = \sum\limits_{j=0}^{m}b_{j}\lambda(B_{j}) = \sum\limits_{j=0}^{m}b_{j}\sum\limits_{i=0}^{n}\lambda(A_{i}\cap B_{j})$.<br>
+            Suppose $\lambda(A_{i}\cap B_{j}) > 0$. Then, $s(x) = a_{i}, t(x) = b_{j}$ for $x\in A_{i}\cap B_{j}$. Since $s\leq t$, $a_{i}\leq b_{j}$.<br>
+            Therefore, $\int s d\mu = \int t d\mu$.
         </div>
     </details>
     <p>
         몇개 더 있다.<br>
         iii) $c>0, \int cs d\mu = c\int s d\mu$(holds for $c=0$ if $\int s d\mu < \infty$)<br>
-        iiii) $\int (s+t) d\mu = \int s d\mu + \int t d\mu$
+        iiii) $\int (s+t) d\mu = \int s d\mu + \int t d\mu$ (non-negative measurable simple function에 대한 적분의 선형성)
     </p>
     <div class = 'definition'>
         <b>Lebesgue integration of non-negative measurable functions</b><br>
@@ -566,8 +575,104 @@
         $\sup$은 unique하니까 well-defined하다.
     </div>
     <p>성질들을 알아보자.<br>
-
+        1. $\int f d\mu \in [0,\infty]$<br>
+        2. $c>0, \int cf d\mu = c\int f d\mu$<br>
+        3. If $f,g \geq 0, f\leq g$, then $\int f d\mu \leq \int g d\mu$<br>
+        증명은 넘어가겠다. simple function의 $\sup$ 인 점을 잘 활용해서 풀면 된다.<br>
+        이제 중요한 두 문제들을 살펴보겠다.
     </p>
+    <p>
+        <b>Problem 1</b> $f\geq 0$ is measurable. Then, $$\int f d\mu = 0 \Leftrightarrow \{x\mid f(x)>0\} \text{ is a null set.}$$
+    </p>
+    <p>
+        <b>Problem 2</b> $f > 0$ is measurable, $\int f d\mu < \infty$. Then, $$\{f=\infty \} \text{ is a null set.}$$
+    </p>
+    <p>$f$보다 작거나 같은 simple function $s$를 indicator를 잘 만들고, 위 성질 3번에 따라서 적분의 monotone 성질도 보였으니 쉽게 증명 가능하다.<br>
+        $f_{n}\rightarrow f$이면 $\int f_{n} d\mu \rightarrow \int f d\mu$가 되는지 궁금할 것이다. 당연히 바로는 안되고, 어떤 조건들 하에 가능할 것인데..
+    </p>
+    <div class = 'theorem'>
+        <b>Lebesgue Increasing Convergence Theorem</b><br>
+        $f_{n} \geq 0$ is measurable, and $f_{1}\leq f_{2}\leq \cdots$. Then, <br>
+        $$\lim\limits_{n\rightarrow \infty}\int f_{n} d\mu = \int (\lim\limits_{n\rightarrow \infty}f_{n}) d\mu$$
+    </div>
+    <details>
+        <summary>Proof of Lebesgue Increasing Convergence Theorem</summary>
+        <div class='proof'>.
+        </div>
+    </details>
+    <div class = 'corollary'>
+        If $f,g\geq 0$ are measurable, then $\int (f+g) d\mu = \int f d\mu + \int g d\mu$.
+    </div>
+    <details>
+        <summary>기존 non-negative simple function에 대해서는 가능했던게 이제는 non-negative measurable function에 대해서도 성립하더라. LICT를 활용하자.</summary>
+        <div class='proof'>Take measurable simple functions $s_{n}^{1}, s_{n}^{2}$ such that $s_{n}^{1}\uparrow f, s_{n}^{2}\uparrow g$. Then, <br>
+            $(s_{n}^{1}+s_{n}^{2})\uparrow (f+g)$. By LICT,
+            $$\int (f+g) d\mu = \lim\limits_{n\rightarrow \infty}\int(s_{n}^{1}+s_{n}^{2}) d\mu 
+            = \lim\limits_{n\rightarrow \infty}(\int s_{n}^{1} d\mu + \int s_{n}^{2} d\mu) = \int f d\mu + \int g d\mu$$
+        </div>
+    </details>
+    <p>이를 이용하면 infinite sum에 대해서도 적용할 수 있는데..</p>
+    <div class = 'corollary'>
+        If $f_{n}\geq 0$ are measurable, then $\int (\sum\limits_{n=1}^{\infty}f_{n}) d\mu = \sum\limits_{n=1}^{\infty}\int f_{n} d\mu$.<br>
+        $F_{k} = \sum\limits_{n=1}^{k}f_{n}$으로 두면 자동적으로 $F_{k} \uparrow \sum\limits_{n=1}^{\infty}f_{n}$이 된다.
+        LICT와 위 corollary(finite sum에 대한 선형성)을 이용하면 된다.
+    </div>
+    <p>
+        이렇게 되면 사실상 모든 summation은 적분의 일부가 되게 된다.<br>
+        $\mu$가 counting measure($\mu(\{n\}) = 1$ for each $n$)라고 하면<br>
+        $X = \{1,2,...\}, M=2^{X}, f : X \rightarrow [0,\infty]$. Then, $f(x) = \sum\limits_{n=1}^{\infty}f(n)\mathbb{1}_{\{n\}}(x) 
+        = \lim\limits_{k\rightarrow \infty}\sum\limits_{n=1}^{k}f(n)\mathbb{1}_{\{n\}}(x)$.<br>
+        Therefore, $\int f d\mu = \sum\limits_{n=1}^{\infty}f(n)$ by LICT.<br>
+        여기서 이제 $a_{n}\geq 0$이 주어졌다고 생각하면, $f(n) = a_{n}$일 때 $\sum\limits_{n}^{\infty}f(n) = \sum\limits_{n}^{\infty}a_{n}$
+        이라 생각할 수 있겠다. 여기서 확장하여 이런 corollary를 볼 수 있겠다.
+    </p>
+    <div class = 'corollary'>
+        If $a_{nm}\geq 0$, then 
+        $$\sum\limits_{n=1}^{\infty}\sum\limits_{m=1}^{\infty} a_{nm} = \sum\limits_{m=1}^{\infty}\sum\limits_{n=1}^{\infty} a_{nm}$$
+    </div>
+    <div class = 'lemma'>
+        <b><em>Fatou's Lemma</em></b><br>
+        Assume $f_{n}\geq 0$ is measurable.
+            <label for="sn-2" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-2" class="sidenote-toggle" />
+            <span class="sidenote">monotone, convergence 가정이 없다!</span>
+        Then,
+        $$\int (\liminf\limits_{n}f_{n})d \mu \leq \liminf_{n}(\int f_{n} d\mu)$$
+    </div>
+    <details>
+        <summary>$g_{n} = \inf \{f_{n}, f_{n+1},...\}$로 생각해보면 LICT를 통해 풀 수 있겠다.</summary>
+        <div class='proof'>위처럼 두면 $g_{n}$은 증가함수이면서 $\lim\limits_{n\rightarrow \infty}g_{n} = \liminf\limits_{n}f_{n}$이다.<br>
+            그러면 LICT에 의해 $\int(\liminf\limits f_{n}) d\mu = \lim\limits_{n\rightarrow \infty}\int g_{n} d\mu$이다.<br>
+            $g_{n}\leq f_{n}$에서, $\int g_{n} d\mu \leq \int f_{n} d\mu$이고, 양옆에 $\liminf$를 씌우면 증명이 끝나게 된다.
+        </div>
+    </details>
+    <p>
+        <b>Lebesgue Integral of General Measurable Functions</b><br>
+        자 위에는 모두 non-negative한 함수들에 대한 적분을 알아보았다. 그럼 우리는 이제 general measurable functions들에 대한 적분으로 확장해야겠다.<br>
+        $f: X\rightarrow [-\infty,\infty]$ is measurable. Then, we can split $f$ into $f_{+}-f_{-}$ where $f_{+}, f_{-}$ are measurable.<br>
+        Define $\int f d\mu = \int f_{+} d\mu - \int f_{-} d\mu$ if either integral is $<\infty$.
+    </p>
+    <div class = 'definition'>
+        We say $f$ is <u>integrable</u> if $f$ is integrable and $\int\limits_{X}|f| d\mu < \infty$.<br>
+        We write $f\in L^{1}$. 적분값이 유한하다는 뜻이다. 왜 이렇게 할까? 다음을 보면 알 수 있다.
+    </div>
+    <div class = 'proposition'>
+        Suppose $f,g\in L^{1}, a,b \in \mathbb{R}$. Then,<br>
+        $af+bg\in L^{1}$ and $\int (af+bg) d\mu = a\int f d\mu + b\int g d\mu$.<br>
+        적분의 선형성은 $L^{1}$에 있는 함수들에 대해서 나오게 된다..! 증명은 생략하겠다.
+    </div>
+    <div class = 'theorem'>
+        <b>Lebesgue Dominated Convergence Theorem</b><br>
+        Assume<br>
+        i) $f_{n}$ is measurable and $\lim\limits_{n\rightarrow \infty}f_{n}(x) = f(x)$, and<br>
+        ii) $\exists g\in L^{1}$ such that $|f_{n}(x)|\leq g(x) \forall x$.($g$ is dominating $f_{n}$)<br>
+        Then, $f\in L^{1}$ and $\lim\limits_{n\rightarrow \infty}\int f_{n} d\mu = \int f d\mu$.
+    </div>
+    <details>
+        <summary>흠.</summary>
+        <div class='proof'>(추후작성)
+        </div>
+    </details>
     <script>
         MathJax = {
             tex: {
