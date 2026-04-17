@@ -669,8 +669,14 @@
         Then, $f\in L^{1}$ and $\lim\limits_{n\rightarrow \infty}\int f_{n} d\mu = \int f d\mu$.
     </div>
     <details>
-        <summary>흠.</summary>
-        <div class='proof'>(추후작성)
+        <summary>Proof of LDCT</summary>
+        <div class='proof'>Know that $f_{n} + g\geq 0, -f_{n}+g\geq 0$.<br>
+            \begin{align*}
+            \int(f+g) d\mu &\leq \liminf\int(f_{n}+g) d\mu = \int g d\mu +\liminf\int f_{n} d\mu\\
+            \therefore \int f d\mu &\leq \liminf\int f_{n} d\mu\\
+            \text{Similarly, }\int(-f) d\mu &\leq \liminf\int(-f_{n}) d\mu = -\limsup \int f_{n} d\mu.\\
+            \therefore \limsup \int f_{n} d\mu &\leq \int f d\mu.
+            \end{align*}
         </div>
     </details>
     <script>
