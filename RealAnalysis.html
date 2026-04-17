@@ -258,6 +258,9 @@
         Suppose $\lambda^{*}(A)<\infty$. Then,
         $$A \in \mathcal{L}_{0} \Longleftrightarrow \forall \epsilon > 0, \exists K^{compact}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus K)<\epsilon $$
     </div>
+            <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-1" class="sidenote-toggle" />
+            <span class="sidenote">strictly small 기호에 대해서 현재 충돌이 있는 것 같다. p안에 쓰면 p밖으로 나가면 되는거같은데 문제는 div 안에 쓰면 div밖으로 나가도 코드 위치가 계속 안에 남아있는다. </span>
     <details>
         <summary>Proof of Theorem on Approximation</summary>
         <div class='proof'>.
@@ -446,8 +449,8 @@
         이제 measurable function의 성질을 알아보자. measurable function의 합, 곱, composition이 measurable function이 된다.<br>
         다시말해, $f, g$가 M-measurable하면 $|f|^{p}, \frac{1}{f}$(단, $f\neq 0$), $f+g, fg, f\circ g$도 M-measurable하다.<br>
         나아가 measurable function의 limit도 measurable function이 된다.
-            <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
-            <input type="checkbox" id="sn-1" class="sidenote-toggle" />
+            <label for="sn-2" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-2" class="sidenote-toggle" />
             <span class="sidenote">sup, inf, limsup, liminf 모두 measurable하다. 귀찮아서 수식은 안적겠다. </span>
     </p>
     <p>우리는 모든 함수들을 simple function으로 근사할 것이다. 그러기 위해서는 simple function이 뭔지와 증명에 필요한 몇가지 notation들을 알아야 한다.<br>
@@ -633,8 +636,8 @@
     <div class = 'lemma'>
         <b><em>Fatou's Lemma</em></b><br>
         Assume $f_{n}\geq 0$ is measurable.
-            <label for="sn-2" class="sidenote-toggle sidenote-number"></label>
-            <input type="checkbox" id="sn-2" class="sidenote-toggle" />
+            <label for="sn-3" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-3" class="sidenote-toggle" />
             <span class="sidenote">monotone, convergence 가정이 없다!</span>
         Then,
         $$\int (\liminf\limits_{n}f_{n})d \mu \leq \liminf_{n}(\int f_{n} d\mu)$$
