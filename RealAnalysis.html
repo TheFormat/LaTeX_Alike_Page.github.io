@@ -74,7 +74,7 @@
     </p>
     <p>
         <em>Example 3.</em>여기서는 우리가 배울 <mark>Lebesgue measure</mark> on $\mathbb{R}^{n}$를 확인할 수 있다.
-        $$A = [a_{1},b_{1}]\times [a_{2},b_{2}]\times \cdots \times [a_{n},b_{n}](-\infty < a_{i} \leq b_{i} <
+        $$A = [a_{1},b_{1}]\times [a_{2},b_{2}]\times \cdots \times [a_{n},b_{n}](-\infty &lt a_{i} \leq b_{i} &lt
         \infty, i=1,2,\ldots,n)$$
         $$\lambda(A) = \prod_{i=1}^{n}(b_{i}-a_{i}) = \text{volume of } A$$
         아쉽게도, 모든 subset에 대해서 measure를 정의하지는 않았다. 어떻게 arbitrary set에 대해서 $\lambda(A)$를 정의할까?<br>
@@ -218,8 +218,8 @@
     </p>
     <details>
         <summary>Proof of *3</summary>
-        <div class='proof'> Suppose $\lambda^{*}(A_{k}) < \infty$ for each $k$. Then,<br>
-            $\forall \epsilon > 0, \exists \text{ open } G_{k}\supset A_{k}$ such that
+        <div class='proof'> Suppose $\lambda^{*}(A_{k}) &lt \infty$ for each $k$. Then,<br>
+            $\forall \epsilon &gt 0, \exists \text{ open } G_{k}\supset A_{k}$ such that
             $\lambda^{*}(A_{k}) + \epsilon 2^{-k} \geq \lambda(G_{k})$.(Since it is the infimum)<br>
             Then, taking $G = \bigcup\limits_{k=1}^{\infty}G_{k}(\supset \bigcup\limits_{k=1}^{\infty}A_{k})$, by *2 and O5,
             $$\lambda^{*}(\bigcup\limits_{k=1}^{\infty}A_{k}) \leq \lambda^{*}(G) \leq \sum\limits_{k=1}^{\infty}\lambda^{*}(G_{k})\leq
@@ -252,12 +252,13 @@
         중요한 정리 하나 보도록 하겠다.
     </p>
     <div class='theorem'> Theorem on Approximation<br>
-        Suppose $\lambda^{*}(A)<\infty$. Then,
+        Suppose $\lambda^{*}(A) &lt \infty$. Then,
         $$A \in \mathcal{L}_{0} \Longleftrightarrow \forall \epsilon > 0, \exists K^{compact}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus K)<\epsilon $$
     </div>
             <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
             <input type="checkbox" id="sn-1" class="sidenote-toggle" />
-            <span class="sidenote">strictly small 기호에 대해서 현재 충돌이 있는 것 같다. p안에 쓰면 p밖으로 나가면 되는거같은데 문제는 div 안에 쓰면 div밖으로 나가도 코드 위치가 계속 안에 남아있는다. </span>
+            <span class="sidenote">strictly small 기호에 대해서 현재 충돌이 있는 것 같다. p안에 쓰면 p밖으로 나가면 되는거같은데
+            문제는 div 안에 쓰면 div밖으로 나가도 코드 위치가 계속 안에 남아있는다. &lt &gt로 대체</span>
     <details>
         <summary>Proof of Theorem on Approximation</summary>
         <div class='proof'>.
@@ -271,16 +272,16 @@
         then $A\cap B = A\setminus (A\setminus B), A\cup B = (A\setminus B)\cup B \in \mathcal{L}_{0}$ follows directly.</summary>
         <div class='proof'>For given $\epsilon > 0$, we choose compact $K_{1}, K_{2}$ and open $G_{1}, G_{2}$ such that 
             $K_{1}\subset A \subset G_{1}, K_{2}\subset B \subset G_{2}$ and 
-            $\lambda(G_{1}\setminus K_{1}) < \frac{\epsilon}{2}, \lambda(G_{2}\setminus K_{2}) < \frac{\epsilon}{2}$. 
+            $\lambda(G_{1}\setminus K_{1}) &lt \frac{\epsilon}{2}, \lambda(G_{2}\setminus K_{2}) &lt \frac{\epsilon}{2}$. 
             Then, $K_{1}\setminus G_{2} \subset A\setminus B \subset G_{1}\setminus K_{2}$ and 
             $(G_{1}\setminus K_{2})\setminus (K_{1}\setminus G_{2})\subset (G_{1}\setminus K_{1})\cup (G_{2}\setminus K_{2})$.<br>
             $A\setminus B$는 결국 open set과 compact set 사이에 끼고, 그 둘의 차이는 epsilon보다 작게 만들 수 있게 된다. 결국 O4에 의해
-            $$\lambda((G_{1}\setminus K_{2})\setminus (K_{1}\setminus G_{2})) < \epsilon$$
+            $$\lambda((G_{1}\setminus K_{2})\setminus (K_{1}\setminus G_{2})) &lt \epsilon$$
         </div>
     </details>
     <p>이제 정말 다 왔다.</p>
     <div class='theorem'> Theorem on countably additivity<br>
-        Suppose $A_{k}\in \mathcal{L}_{0}$ and $\lambda^{*}(\bigcup\limits_{k=1}^{\infty}A_{k}) < \infty$. 
+        Suppose $A_{k}\in \mathcal{L}_{0}$ and $\lambda^{*}(\bigcup\limits_{k=1}^{\infty}A_{k}) &lt \infty$. 
         Then, $A =-\bigcup\limits_{k=1}^{\infty}A_{k}\in \mathcal{L}_{0}$ and $\lambda(A) \leq \sum\limits_{k=1}^{\infty}\lambda(A_{k})$.<br>
         Also, if $A_{k}$ are disjoint, then $\lambda(A) = \sum\limits_{k=1}^{\infty}\lambda(A_{k})$.
     </div>
@@ -302,7 +303,7 @@
         이러한 proposition도 있다.
     </p>
     <div class='proposition'>
-        Suppose $\lambda^{*}(A) < \infty$. Then, $A\in \mathcal{L} \Leftrightarrow A\in \mathcal{L}_{0}$.<br>
+        Suppose $\lambda^{*}(A) &lt \infty$. Then, $A\in \mathcal{L} \Leftrightarrow A\in \mathcal{L}_{0}$.<br>
         유한하면 사실상 두개가 같다는 뜻이다. 증명은 쉽다. $\Leftarrow$는 모든 $k$에 대해 $B(0,k)\in \mathcal{L}_{0}$임을 이용해서 증명하면 된다.
     </div>
     <p><em>Properties of Lebesgue Measure</em><br>
@@ -330,7 +331,7 @@
     </details>
     <p>
         <b>M6 Continuity on decreasing sets</b> <br>
-        Suppose $A_{k}\in \mathcal{L}, A_{k}\supset A_{k+1}$, and $\lambda(A_{1}) < \infty$. Then, 
+        Suppose $A_{k}\in \mathcal{L}, A_{k}\supset A_{k+1}$, and $\lambda(A_{1}) &lt \infty$. Then, 
         $\lim\limits_{k\rightarrow \infty}\lambda(A_{k}) = \lambda(\bigcap\limits_{k=1}^{\infty}A_{k})$<br>
         무한이면 안되는 점에 유의하자.
     </p> 
@@ -343,7 +344,7 @@
         <b>M7 </b> All open and closed sets are measurable.<br>
         <b>M8 </b> If $\lambda^{*}(A) = 0$, then $A\in \mathcal{L}$.<br>
         <b>M9 </b> $A\in \mathcal{L} \Leftrightarrow \forall \epsilon > 0, \exists F^{closed}\subset A \subset G^{open} \text{ s.t } 
-        \lambda(G\setminus F) < \epsilon$
+        \lambda(G\setminus F) &lt \epsilon$
     </p>
     <details>
         <summary>Proof of M9</summary>
@@ -355,7 +356,7 @@
         $A \in \mathcal{L}_{0}$이면 당연하니까, $\lambda^{*}(A) = \infty$인 경우만 체크해보자.
     </p>
     <details>
-        <summary>Assume $\lambda^{*}(A) = \infty$ and $\lambda(A) < \infty$.</summary>
+        <summary>Assume $\lambda^{*}(A) = \infty$ and $\lambda(A) &lt \infty$.</summary>
         <div class='proof'>.
         </div>
     </details>
@@ -363,13 +364,13 @@
     <div class='definition'>
         Let $M$ be a collection of subsets of $X$. That is, $M\subset 2^{X}.$<br>
         $M$ is an algebra(field) if<br>
-        a) $\emptyset\in M$<br>
-        b) $A,B\in M\Rightarrow A\cup B\in M$<br>
-        c) $A\in M\Rightarrow A^{c}\in M$
+        a. $\emptyset\in M$<br>
+        b. $A,B\in M\Rightarrow A\cup B\in M$<br>
+        c. $A\in M\Rightarrow A^{c}\in M$
     </div>
     <div class='definition'>
         An algebra $M$ is a <b>$\sigma$-algebra</b> if<br>
-        b') $A_{k}\in M\Rightarrow \bigcup\limits_{k=1}^{\infty}A_{k}\in M$
+        b'. $A_{k}\in M\Rightarrow \bigcup\limits_{k=1}^{\infty}A_{k}\in M$
     </div>
     <div class='definition'>
         Let $X$ given, and $N$ be a collection of subsets of $X$.($N\subset 2^{X}$)<br>
@@ -423,7 +424,7 @@
     <p> 증명은 넘어가도록 하겠다. Prop 2로 Prop 1을 증명할 수 있다.<br>
     중요한 건, 우리는 이제 모든 Borel Set을 체크하는 대신 $N$에 있는 것들만 체크하면 된다는 것이다.<br>
     이를테면 $\mathcal{B}(\mathbb{R})$에서
-    $N_{1} = \{\text{open sets}\}, N_{2} = \{(a,b)\mid a < b\}, N_{3} = \{[a,\infty)\mid a \in \mathbb{R}\}$로 잡을 때<br>
+    $N_{1} = \{\text{open sets}\}, N_{2} = \{(a,b)\mid a &lt b\}, N_{3} = \{[a,\infty)\mid a \in \mathbb{R}\}$로 잡을 때<br>
     $\sigma(N_{1}) = \sigma(N_{2}) = \sigma(N_{3}) = \mathcal{B}(\mathbb{R})$이다.<br>
     Proposition 1에 의해서 $\bar{\mathbb{R}}$에서의 함수 $f$가 M-measurable한지 확인할 방법이 생겼다.
     </p>
@@ -470,23 +471,23 @@
     <div class ='theorem'>
         Suppose $f : X\rightarrow [-\infty,\infty]$ is M-measurable. Then, there exist M-measurable simple functions 
         $s_{1}, s_{2},...$ such that<br>
-        i) $\lim\limits_{n\rightarrow \infty}s_{n}(x) = f(x)$ for all $x\in X$<br>
-        ii) If $f$ is bounded, then $s_{n}\rightarrow f$ uniformly. That is, $\sup\limits_{x}|s_{n}(x)-f(x)|\rightarrow 0$ as $n\rightarrow \infty$.<br>
-        iii) If $f\geq 0$, then $s_{1}(x)\leq s_{2}(x) \leq \cdots$($s_{n}\uparrow f$).
+        i. $\lim\limits_{n\rightarrow \infty}s_{n}(x) = f(x)$ for all $x\in X$<br>
+        ii. If $f$ is bounded, then $s_{n}\rightarrow f$ uniformly. That is, $\sup\limits_{x}|s_{n}(x)-f(x)|\rightarrow 0$ as $n\rightarrow \infty$.<br>
+        iii. If $f\geq 0$, then $s_{1}(x)\leq s_{2}(x) \leq \cdots$($s_{n}\uparrow f$).
     </div>
     <details>
         <summary>$f\geq 0$인 경우만 체크하자. 일반화하기 위해서는 $f = f_{+} - f_{-}$로 하고 각 $f$들로 가는 $s_{n}$들을 찾으면 된다.</summary>
         <div class='proof'>Assume $f\geq 0$. Define $s_{n}(x) = 
             \begin{cases}
-                k2^{-n} & \text{if } k2^{-n} \leq f(x) < (k+1)2^{-n} \text{ for some } k = 0,1,...,n2^{n}\\
+                k2^{-n} & \text{if } k2^{-n} \leq f(x) &lt (k+1)2^{-n} \text{ for some } k = 0,1,...,n2^{n}\\
                 n & \text{if } f(x) \geq n
             \end{cases}$<br>
             Know that $s_{n}(x)\leq f(x), s_{n}(x) \leq s_{n+1}(x)$, and $|f(x)-s_{n}(x)|\leq 2^{-n}$ if $f(x) \leq n$.<br>
             $s_{n}$이 simple function인지는 나중에 보고, 이렇게 정의된 함수는 위 조건들을 모두 만족하게 된다. 하나씩 살펴보자.<br>
-            i) If $|f(x)| \neq \infty$, then, $f(x)\leq n$ for some $n$. Then, $|f(x)-s_{m}(x)\leq 2^{-m}$ if $m\geq n$.<br>
+            i. If $|f(x)| \neq \infty$, then, $f(x)\leq n$ for some $n$. Then, $|f(x)-s_{m}(x)\leq 2^{-m}$ if $m\geq n$.<br>
             If $|f(x)| = \infty$, then $s_{n}(x) = n$.<br>
-            ii) If $\sup|f(x)|\leq n$, then $\sup|f(x)-s_{m}(x)|\leq 2^{-m}$ for $m\geq n$.<br>
-            iii)은 위에서 이미 보였다. $s_{n}$을 증가하면서도, bounded될 수 있게 잘 만들었다.<br>
+            ii. If $\sup|f(x)|\leq n$, then $\sup|f(x)-s_{m}(x)|\leq 2^{-m}$ for $m\geq n$.<br>
+            iii은 위에서 이미 보였다. $s_{n}$을 증가하면서도, bounded될 수 있게 잘 만들었다.<br>
             $A_{nk} = \{x\mid f(x) \in [k2^{-n}, (k+1)2^{-n})\}, k=0,1,...,n2^{n}$, $A_{n} = \{x\mid f(x) > n\}$로 두면<br>
             두 set은 measurable set이 되고 이를 이용해
             $$s_{n} = \sum\limits_{k=0}^{n2^{-n}}k2^{-n}\mathbb{1}_{A_{nk}} + n\mathbb{1}_{A_{n}}$$
@@ -497,8 +498,8 @@
     <p>이번에는 null set들 다 포함하는, 그런 measure space를 만들 것이다.(왜?)</p>
     <div class = 'definition'>
         Let $(X,M)$ be a measurable space. A set function $\mu$ on $M$ is called a positive measure if<br>
-        i) $\mu(\emptyset) = 0$<br>
-        ii) $\mu(\bigcup\limits_{n=1}^{\infty}A_{n}) = \sum\limits_{n=1}^{\infty}\mu(A_{n})$ for disjoint $A_{n}\in M$<br>
+        i. $\mu(\emptyset) = 0$<br>
+        ii. $\mu(\bigcup\limits_{n=1}^{\infty}A_{n}) = \sum\limits_{n=1}^{\infty}\mu(A_{n})$ for disjoint $A_{n}\in M$<br>
         We say $(X,M,\mu)$ is a measure space.
     </div>
     <p>
@@ -523,8 +524,8 @@
         <summary>$\mathcal{L}$이 뭔지를 잘 생각해보자. collection of all measurable set이다.</summary>
         <div class='proof'>We will show $\overline{\mathcal{B}(\mathbb{R}^{n})} \supset \mathcal{L}$ first.<br>
         Recall $A\in \mathcal{L} \Leftrightarrow \forall \epsilon > 0, 
-        \exists F^{closed}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus F) < \epsilon$<br>
-        For each $n$, take $F_{n}^{closed}\subset B \subset G_{n}^{open}, \lambda(G_{n}\setminus F_{n}) < \frac{1}{n}$.
+        \exists F^{closed}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus F) &lt \epsilon$<br>
+        For each $n$, take $F_{n}^{closed}\subset B \subset G_{n}^{open}, \lambda(G_{n}\setminus F_{n}) &lt \frac{1}{n}$.
         Know that $\cup F_{n} \in \mathcal{B}(\mathbb{R}^{n})$. Take $A =  \cup F_{n}$, $C = \cap G_{n}$. Then,
         $B = A\cup (B\setminus A)$ where $B\setminus A\subset C\setminus A, \lambda(C\setminus A) = 0$.<br>
         왜? $C\setminus A \subset G_{n}\setminus A \subset G_{n}\setminus F_{n}$이기 때문이다. <br>
@@ -533,8 +534,8 @@
         Take $A\cup N\in \overline{\mathcal{B}(\mathbb{R}^{n})}$ where $A\in \mathcal{B}(\mathbb{R}^{n}), N$ is a null set. 
         Then, $\exists B\in \mathcal{B}(\mathbb{R}^{n})$ such that $N\subset B$ and $\lambda(B) = 0$. 
         Since $A\cup B\in \mathcal{B}(\mathbb{R}^{n})$, we can take $F^{closed}\subset A\cup B \subset G^{open}$ such that 
-        $\lambda(G\setminus F) < \epsilon$. Then, $A\cup N = (A\cup B)\cup (N\setminus A)$. 
-        Since $N\setminus A \subset B$, $\lambda((A\cup B)\setminus F) < \epsilon$. Therefore, $A\cup N$ is measurable.(github copilot이 작성)
+        $\lambda(G\setminus F) &lt \epsilon$. Then, $A\cup N = (A\cup B)\cup (N\setminus A)$. 
+        Since $N\setminus A \subset B$, $\lambda((A\cup B)\setminus F) &lt \epsilon$. Therefore, $A\cup N$ is measurable.(github copilot이 작성)
         </div>
     </details>
     <h2>Integration</h2>
@@ -546,11 +547,11 @@
         여기서, 우리는 $0*\infty \equiv 0$이라 두겠다.
     </p>
     <div class = 'proposition'>우선, 잘 정의되는지부터 보자.<br>
-        i) The integral is well defined on $S$.<br>
-        ii) If $t,s\in S, s\leq t$, then $\int_X s d\mu \leq \int_X t d\mu$.
+        i. The integral is well defined on $S$.<br>
+        ii. If $t,s\in S, s\leq t$, then $\int_X s d\mu \leq \int_X t d\mu$.
     </div>
     <details>
-        <summary>It is sufficient to show ii) to prove i).</summary>
+        <summary>It is sufficient to show ii to prove i.</summary>
         <div class='proof'>Let $s = \sum\limits_{i=1}^{n}a_{i}\mathbb{1}_{A_{i}}(x)$ and $t = \sum\limits_{j=1}^{m}b_{j}\mathbb{1}_{B_{j}}(x)$.<br>
             $\int sd\mu = \sum\limits_{i=1}^{n}a_{i}\mu(A_{i}) = \sum\limits_{i=0}^{n}a_{i}\mu(A_{i})$ where $A_{0} = X\setminus \cup A_{i}, a_{0}=0$<br>
             The integral does not change if we add $0\mathbb{1}_{A_{0}}$ to $s$.<br>
@@ -565,8 +566,8 @@
     </details>
     <p>
         몇개 더 있다.<br>
-        iii) $c>0, \int cs d\mu = c\int s d\mu$(holds for $c=0$ if $\int s d\mu < \infty$)<br>
-        iiii) $\int (s+t) d\mu = \int s d\mu + \int t d\mu$ (non-negative measurable simple function에 대한 적분의 선형성)
+        iii. $c>0, \int cs d\mu = c\int s d\mu$(holds for $c=0$ if $\int s d\mu &lt \infty$)<br>
+        iiii. $\int (s+t) d\mu = \int s d\mu + \int t d\mu$ (non-negative measurable simple function에 대한 적분의 선형성)
     </p>
     <div class = 'definition'>
         <b>Lebesgue integration of non-negative measurable functions</b><br>
@@ -585,7 +586,7 @@
         <b>Problem 1</b> $f\geq 0$ is measurable. Then, $$\int f d\mu = 0 \Leftrightarrow \{x\mid f(x)>0\} \text{ is a null set.}$$
     </p>
     <p>
-        <b>Problem 2</b> $f > 0$ is measurable, $\int f d\mu < \infty$. Then, $$\{f=\infty \} \text{ is a null set.}$$
+        <b>Problem 2</b> $f > 0$ is measurable, $\int f d\mu &lt \infty$. Then, $$\{f=\infty \} \text{ is a null set.}$$
     </p>
     <p>$f$보다 작거나 같은 simple function $s$를 indicator를 잘 만들고, 위 성질 3번에 따라서 적분의 monotone 성질도 보였으니 쉽게 증명 가능하다.<br>
         $f_{n}\rightarrow f$이면 $\int f_{n} d\mu \rightarrow \int f d\mu$가 되는지 궁금할 것이다. 당연히 바로는 안되고, 어떤 조건들 하에 가능할 것인데..
@@ -650,10 +651,10 @@
         <b>Lebesgue Integral of General Measurable Functions</b><br>
         자 위에는 모두 non-negative한 함수들에 대한 적분을 알아보았다. 그럼 우리는 이제 general measurable functions들에 대한 적분으로 확장해야겠다.<br>
         $f: X\rightarrow [-\infty,\infty]$ is measurable. Then, we can split $f$ into $f_{+}-f_{-}$ where $f_{+}, f_{-}$ are measurable.<br>
-        Define $\int f d\mu = \int f_{+} d\mu - \int f_{-} d\mu$ if either integral is $<\infty$.
+        Define $\int f d\mu = \int f_{+} d\mu - \int f_{-} d\mu$ if either integral is $&lt \infty$.
     </p>
     <div class = 'definition'>
-        We say $f$ is <u>integrable</u> if $f$ is integrable and $\int\limits_{X}|f| d\mu < \infty$.<br>
+        We say $f$ is <u>integrable</u> if $f$ is integrable and $\int\limits_{X}|f| d\mu &lt \infty$.<br>
         We write $f\in L^{1}$. 적분값이 유한하다는 뜻이다. 왜 이렇게 할까? 다음을 보면 알 수 있다.
     </div>
     <div class = 'proposition'>
@@ -664,8 +665,8 @@
     <div class = 'theorem'>
         <b>Lebesgue Dominated Convergence Theorem</b><br>
         Assume<br>
-        i) $f_{n}$ is measurable and $\lim\limits_{n\rightarrow \infty}f_{n}(x) = f(x)$, and<br>
-        ii) $\exists g\in L^{1}$ such that $|f_{n}(x)|\leq g(x) \forall x$.($g$ is dominating $f_{n}$)<br>
+        i. $f_{n}$ is measurable and $\lim\limits_{n\rightarrow \infty}f_{n}(x) = f(x)$, and<br>
+        ii. $\exists g\in L^{1}$ such that $|f_{n}(x)|\leq g(x) \forall x$.($g$ is dominating $f_{n}$)<br>
         Then, $f\in L^{1}$ and $\lim\limits_{n\rightarrow \infty}\int f_{n} d\mu = \int f d\mu$.
     </div>
     <details>
@@ -681,8 +682,38 @@
     </details>
     <p>
         <b>Almost Everywhere</b><br>
-        If a property is valid except on a null set, we say the property holds almost everywhere.<em>(a.e)</em>
+        If a property is valid except on a null set, we say the property holds almost everywhere.<em>(a.e)</em><br>
+        <b>Integration on Subsets</b><br>
+        $A\in M, f \in L^{1}(\mu)$ or $f\geq 0$. We say $\int\limits_{A}f d\mu = \int \mathbb{1}_{A}f d\mu.$
     </p>
+    <div class = 'proposition'>
+        If $h\geq 0$, then $\nu(A) = \int\limits_{A}h d\mu$ is a measure on $M$.<br>
+        Measure가 있고, 함수가 있으면 새로운 measure를 만들 수 있다. 앞으로 우리는 이런 notation을 쓰도록 하겠다.<br>
+        $d\nu = h d\mu$.
+    </div>
+    <div class = 'proposition'>
+        If $f \geq 0$ is measurable, then $\int\limits_{X}f d\nu = \int\limits_{X}fh d\mu$.
+    </div>
+        <details>
+        <summary>Indicator function에 대해서만 보이면 simple function, general function확장은 알아서 할 수 있으리라 믿는다.</summary>
+        <div class='proof'>If $f = \mathbb{1}_{A}$, then $\int\limits_{X}f d\nu = \int\limits_{X}\mathbb{1}_{A}d\nu = \nu(A) = \int\limits_{X}
+            \mathbb{1}_{A}h d\mu = \int\limits_{X} fh d\mu$.
+        </div>
+    </details>
+    <p>
+        Note that $\mu(A) = 0$ implies $\nu(A) = 0$. We say  <b>$\nu$ is absolutely continuous with respect to $\mu$.</b> 
+        We write as $\nu \ll \mu$.<br>
+        $d\nu = h d\mu \Leftrightarrow \nu \ll \mu$. 추후 증명하지만 $\Leftarrow$도 참이다.<br>
+        Consider $f(x,t) : X\times \mathcal{J} \rightarrow [-\infty,\infty], F(t) = \int\limits_{X}f(\cdot , t)d\mu (x)$.<br>
+        여기서 $\mathcal{J}$는 $\mathbb{R}$에서의 interval이 되겠다. 우리는 $t$에 대해 연속성과 미분가능성을 확인하고 싶다..!
+    </p>
+    <div class = 'theorem'>
+        Suppose<br>
+        i. $\forall t \in \mathcal{J}, f(\cdot, t) \in L^{1}(X,\mu)$<br>
+        ii. $\exists g\in L^{1}(X,\mu), |f(x,t)|\leq g(x) \forall t\in \mathcal{J}$<br>
+        iii. $t_{0}\in \mathcal{J}$ and $f(x,t)$ is continuous at $t_{0}$ for $\mu - a.e x$.<br>
+        Then, $F(t)$ is continuous at $t_{0}$ and $\lim\limits_{t\rightarrow t_{0}}F(t) = \int\limits_{X}f(x,t_{0})d \mu(x)$.
+    </div>
     <script>
         MathJax = {
             tex: {
