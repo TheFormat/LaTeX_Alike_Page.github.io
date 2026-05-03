@@ -31,6 +31,33 @@
     </aside>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="dark-mode.js"></script>
+    <p>본격적으로 들어가기에 앞서, 몇가지 설명을 하고 넘어가겠다.<br>
+        일반적으로 PDE의 해를 따질 때에는 <b>Well-posedness(Existence, Unigueness, Stability)</b>를 따진다고 한다. 
+        여기서 Stability란, 만약 initial value가 그렇게 멀리 있지 않으면, solution 역시 근처에 있는 성질이다.<br>
+        <b>2nd order PDE in 2 variables</b> : $F(x,y,u,u_{x},u_{y},u_{xx},u_{xy},u_{yy}) = 0.$<br>
+        <b>Linearity</b><br>
+        Let $\mathcal{L}$ be an operator.(mapping a function to another function) Then, an operator $\mathcal{L}$ is linear if<br>
+        $\mathcal{L}(u+v) = \mathcal{L}u + \mathcal{L}v. \mathcal{L}(cu) = c\mathcal{L}(u)$.<br>
+        For example, from $u_{x}+yu_{y}-5x = 0$, $(\frac{\partial}{\partial x}+ y\frac{\partial}{\partial y})$ is a linear operator.<br>
+        On the other hand, from $u_{x}+u\cdot u_{y}-5x = 0$, $\mathcal{L}u := u_{x}+u\cdot u_{y}$ is not a linear operator. Check it by yourself.<br>
+        A PDE $\mathcal{L}u = f(x,y,...)$ where $f$ is independent of $u$ is linear if $\mathcal{L}$ is a linear operator.
+    </p>
+    <div class = 'definition'>
+        A linear PDE $\mathcal{L}u = f(x,y,...)$ is homogeneous if $f(x,y,...) = 0$. Otherwise, we say the PDE is non-homogeneous.
+    </div>
+    <p>
+        <b>(Principle of Superposition)</b><br>
+        If $u_{1},u_{2}$ are solutions, then so is $c_{1}u_{1}+c_{2}u_{2}$ for any $c_{1}, c_{2}$.
+    </p>
+    <p>Now, lets solve for $u=u(x,y)$ satisfying  $au_{x}+bu_{y}= 0, a,b\in \mathbb{F}$, one of them is non-zero.</p>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]]<!-- $수식$도 표현할 수 있게 -->
+            }
+        }
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="dark-mode.js"></script>
 </body>
-
 </html>
