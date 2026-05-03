@@ -253,7 +253,7 @@
     </p>
     <div class='theorem'> Theorem on Approximation<br>
         Suppose $\lambda^{*}(A) &lt \infty$. Then,
-        $$A \in \mathcal{L}_{0} \Longleftrightarrow \forall \epsilon > 0, \exists K^{compact}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus K)<\epsilon $$
+        $$A \in \mathcal{L}_{0} \Longleftrightarrow \forall \epsilon &gt 0, \exists K^{compact}\subset A \subset G^{open} \text{ s.t } \lambda(G\setminus K) &lt \epsilon $$
     </div>
             <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
             <input type="checkbox" id="sn-1" class="sidenote-toggle" />
@@ -711,8 +711,62 @@
         Suppose<br>
         i. $\forall t \in \mathcal{J}, f(\cdot, t) \in L^{1}(X,\mu)$<br>
         ii. $\exists g\in L^{1}(X,\mu), |f(x,t)|\leq g(x) \forall t\in \mathcal{J}$<br>
-        iii. $t_{0}\in \mathcal{J}$ and $f(x,t)$ is continuous at $t_{0}$ for $\mu - a.e x$.<br>
+        iii. $t_{0}\in \mathcal{J}$ and $f(x,t)$ is continuous at $t_{0}$ for $\mu - a.e$ $x$.<br>
         Then, $F(t)$ is continuous at $t_{0}$ and $\lim\limits_{t\rightarrow t_{0}}F(t) = \int\limits_{X}f(x,t_{0})d \mu(x)$.
+    </div>
+    <details>
+    <summary>Proof.</summary>
+    <div class='proof'>Let $t_{n} \rightarrow t_{0}, t_{n}\in \mathcal{J}, t_{n}\neq t_{0}$.<br>
+        $F(t_{n}) =\int\limits_{X}f(x,t_{n})d\mu$. Say, $f_{n} = f(x,t_{n}).$ Then, we have<br>
+        $|f_{n}|\leq g, g\in L^{1}, f_{n}\rightarrow f(x,t_{0}) a.e$.<br>
+        By LDCT, $\lim\limits_{n\rightarrow \infty}F(t_{n}) = \int\limits_{X}f(x,t_{0})d\mu = F(t_{0}).$
+    </div>
+    </details>
+    <div class = 'theorem'> Suppose <br>
+        i. $\forall t \in \mathcal{J}, f(\cdot, t) \in L^{1}(X,\mu)$<br>
+        ii. For $\mu - a.e$ $x$, $f(x,t)$ is differentiable $\forall t\in \mathcal{J}$<br>
+        iii. $\exists h\in L^{1}(X,\mu) s.t$ $|\frac{\partial f(x,t)}{\partial t}|&lt h(x)$.<br>
+        Then, $F'(t_{0}) = \int\limits_{X}\frac{\partial f}{\partial t}(x,t_{0})d \mu$ $\forall t_{0}\in \mathcal{J}$.
+    </div>
+    <p>
+        증명은 생략하겠다. 위 증명과 같은 가정 이후 $\frac{f(x,t_{n})-f(x,t_{0})}{t_{n}-t_{0}}$을 하고 MVT를 통해 <br>
+        $f_{n}(x) = \frac{\partial f}{\partial t}(x,t'_{n})$이므로, $h$가 dominating function 이 된다. 이 뒤로는 다들 알 것이다.<br>
+    </p>
+    <div class = 'theorem'> Suppose $f\in L^{1}(\mu)$. Then, 
+        $$\forall \epsilon &gt 0,\text{ } \exists \delta &gt 0 s.t \text{ } \mu(A) &lt \delta \Rightarrow |\int\limits_{A}f d \mu| &lt \epsilon$$
+    </div>
+    <details>
+    <summary>Proof. 교수님께서 어려워했다가 알고보니 되게 쉬웠다던 증명이라더라.. 두가지 방법을 통해 증명하셨지만, 나는 하나만 하겠다.</summary>
+    <div class='proof'>
+        $|\int\limits_{A}f d\mu| &lt \int\limits_{A}|f|d\mu$. Thus, we may assume $f\geq 0$.<br>
+        For given $\epsilon &gt 0$, take(fix) simple function $s$ such that $\int\limits_{X}f d\mu - \frac{\epsilon}{2} &lt \int\limits_{X}s d\mu, s\leq f$.
+        $$\int\limits_{A}f d\mu = \int\limits_{A}(f-s)d\mu + \int\limits_{A}s d\mu \leq \int\limits_{X}(f-s)d\mu + \int\limits_{A}s d\mu.$$
+        Letting $|s|\leq c$, then we have $\int\limits_{A}s d\mu \leq c \mu(A)$.<br>
+        Taking $\delta = \frac{\epsilon}{2c}$, we have $\mu(A) &lt \frac{\epsilon}{2c} \Rightarrow \int\limits_{A}s d\mu \leq \frac{\epsilon}{2}$.
+    </div>
+    </details>
+    <h2>$L^{p}$ Spaces $(1\leq p \leq \infty)$</h2>
+    <p>$(X,M,\mu)$ : a measure space. $f : X\rightarrow [-\infty,\infty]$ is measurable, and $1\leq p &lt \infty$($p=\infty$일 때는 다르게 정의하겠다.)<br>
+        We write $f\in L^{p}$ if 
+        $$\Vert f \Vert_{p} = [\int\limits_{X}|f|^{p}d \mu]^{\frac{1}{p}} &lt \infty$$
+        Note that if $f,g\in L^{p}$ and $c \in \mathbb{R}$, then<br>
+        1. $0\leq \Vert f \Vert_{p} &lt \infty$<br>
+        2. $\Vert f \Vert_{p} = 0 \Leftrightarrow f=0 a.e$<br>
+        3. $\Vert cf \Vert_{p} = |c|\Vert f \Vert_{p}$<br>
+        4. (Minkowski Inequality) $\Vert f + g \Vert_{p} \leq \Vert f \Vert_{p} + \Vert g \Vert_{p}$<br>
+    </p>
+    <div class = 'definition'>
+        For $f,g \in L^{p}$, we write $f=g$ in $L^{p}$ if $f=g \text{ } a.e \Leftrightarrow \Vert f-g \Vert_{p} = 0$.
+    </div>
+    <h3>Complex-valued Functions</h3>
+    <p>후에 complex-valued function들을 적분하는 것이 아주 중요할거라더라.</p>
+    <div class = 'definition'>
+        $f : X\rightarrow \mathbb{C}$ is measurable if $\Re(f), \Im(f)$ are measurable. We write $f\in L^{1}$ if
+        $$\Re(f), \Im(f) \in L^{1} \Leftrightarrow |f| \in L^{1}$$
+    </div>
+    <div class = 'definition'>
+        $f \in L^{1}.$. Then, we say
+        $$\int f d\mu = \int \Re(f)d\mu + i\int \Im(f)d\mu.$$
     </div>
     <script>
         MathJax = {
