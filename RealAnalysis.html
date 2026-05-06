@@ -35,7 +35,10 @@
                 5/1 무역통계대회 접수<br>
                 5/3 컴활 다시 공부(엑셀 연습문제) 무역통계대회 데이터선정(~5/23) 실해석 업데이트 퀀트브레인알파 뭔지 확인<br>
                 5/5 퀀트브레인알파/컴활 다시공부(액세스)<br>
-                5/10에 컴활을 한번 볼까..
+                5/7 실해석학 정리 및 PDE 정리<br>
+                5/8 무역통계대회 준비 및 컴활시작(진짜해야함)<br>
+                5/9 컴활공부<br>
+                5/10 무역통계대회 및 컴활공부
             </p>
         </main>
     </div>
@@ -768,6 +771,21 @@
         $f \in L^{1}.$. Then, we say
         $$\int f d\mu = \int \Re(f)d\mu + i\int \Im(f)d\mu.$$
     </div>
+    <div class = 'proposition'>
+        If $f,g \in L^{1}$, then<br>
+        1. $\int(f+g) d\mu = \int fd\mu + \int gd\mu$<br>
+        2. $\forall c\in \mathbb{C}, \int(cf)d\mu = c \int fd\mu$<br>
+        증명은 생략하겠다. 실수부분과 허수부분으로 잘 나누고 정의를 생각해보면 충분히 도출해낼 수 있다.
+    </div>
+    <div class = 'proposition'>
+        $f\in L^{1}$ is a complex-valued function. Then, $|\int fd\mu| \leq \int |f|d\mu$.
+    </div>
+    <summary>Proof. </summary>
+    <div class='proof'>
+        Take $\theta \in [0,2\pi]$ so that
+        $$|\int fd\mu| = e^{i\theta}\int fd\mu = \int e^{i\theta}f d\mu = \int \Re(e^{i\theta}f)d\mu \leq \int |f|d\mu.$$
+    </div>
+    </details>
     <script>
         MathJax = {
             tex: {
