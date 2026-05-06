@@ -29,7 +29,6 @@
     <aside id="sticky-box">
         <p>Finna add a link. Don't know what it will be..</p>
     </aside>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <p>본격적으로 들어가기에 앞서, 몇가지 설명을 하고 넘어가겠다.<br>
         일반적으로 PDE의 해를 따질 때에는 <b>Well-posedness(Existence, Unigueness, Stability)</b>를 따진다고 한다. 
         여기서 Stability란, 만약 initial value가 그렇게 멀리 있지 않으면, solution 역시 근처에 있는 성질이다.<br>
@@ -48,7 +47,24 @@
         <b>(Principle of Superposition)</b><br>
         If $u_{1},u_{2}$ are solutions, then so is $c_{1}u_{1}+c_{2}u_{2}$ for any $c_{1}, c_{2}$.
     </p>
-    <p>Now, lets solve for $u=u(x,y)$ satisfying  $au_{x}+bu_{y}= 0, a,b\in \mathbb{F}$, one of them is non-zero.</p>
+    <p>Now, lets solve for $u=u(x,y)$ satisfying  $au_{x}+bu_{y}= 0, a,b\in \mathbb{F}$, one of them is non-zero.<br>
+    Recall that $\nabla u = \langle u_{x}, u_{y} \rangle$. Then, $\nabla u \cdot \langle a,b \rangle = 0$ indicates that 
+    $u$ is a constant in the direction $\langle a,b \rangle.$
+    $$\frac{dy}{dx} = \frac{b}{a} \text{ or } \frac{x-x_{0}}{a} = \frac{y-y_{0}}{b}, \text{ thus, we have } bx-ay = C$$
+    $u$ only depends on $C$. Thus, $u(x,y) = f(C) = f(bx-ay), f(ay-bx)$.<br>
+    예시를 보자. $u_{x}+2xy^{2}u_{y} = 0$에서 $u$는 항상 $\langle 1, 2xy^{2} \rangle$에서 항상 상수일 것이다. 조금 더 정리하면<br>
+    $u(x,y) = f(C) = f(x^{2}+\frac{1}{y})$이다.
+    </p>
+    <p>다른 방법도 있다. Change of Coordinates의 경우인데, 위의 예시에서 같이 보자.<br>
+    We know that the characteristic curve is $x^{2}+\frac{1}{y} = C$. Let $\xi = x^{2}+\frac{1}{y}, \eta = x$. Then, the Jacobian is
+    $$J(\xi,\eta) =
+    \begin{vmatrix}
+    \frac{\partial \xi}{\partial x} & \frac{\partial \xi}{\partial y} \\
+    \frac{\partial \eta}{\partial x} & \frac{\partial \eta}{\partial y}
+    \end{vmatrix} = \frac{1}{y^{2}} \neq 0$$
+    Thus, we can change the coordinates. From $u_{x} = 2xu_{\xi} + 1\cdot u_{\eta}, u_{y} = (-\frac{1}{y^{2}})u_{\xi}$, $u_{\eta} = 0$<br>
+    $u = f(\xi) = f(x^{2}+\frac{1}{y})$.
+    </p>
     <script>
         MathJax = {
             tex: {
