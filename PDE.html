@@ -25,10 +25,16 @@
         </p>
         <button id="dark-mode-toggle">어둡게</button>
     </header>
-    <h2>PDE</h2>
+    <h1>PDE</h1>
     <aside id="sticky-box">
         <p>Finna add a link. Don't know what it will be..</p>
     </aside>
+    <article class="abstract">
+            <h2>Abstract</h2>
+            <p class="pen">
+                .
+            </p>
+        </article>
     <p>본격적으로 들어가기에 앞서, 몇가지 설명을 하고 넘어가겠다.<br>
         일반적으로 PDE의 해를 따질 때에는 <b>Well-posedness(Existence, Unigueness, Stability)</b>를 따진다고 한다. 
         여기서 Stability란, 만약 initial value가 그렇게 멀리 있지 않으면, solution 역시 근처에 있는 성질이다.<br>
@@ -56,14 +62,47 @@
     $u(x,y) = f(C) = f(x^{2}+\frac{1}{y})$이다.
     </p>
     <p>다른 방법도 있다. Change of Coordinates의 경우인데, 위의 예시에서 같이 보자.<br>
-    We know that the characteristic curve is $x^{2}+\frac{1}{y} = C$. Let $\xi = x^{2}+\frac{1}{y}, \eta = x$. Then, the Jacobian is
+    We know that the characteristic curve is $x^{2}+\frac{1}{y} = C$. Let $\xi = x^{2}+\frac{1}{y}, \eta = x$. Know that <br>
+    $x(\xi, \eta) = \eta, y(\xi, \eta) = \frac{1}{\xi - \eta^2}$.(적고보니 별로 중요하진 않았네..)<br>
+    Then, the Jacobian is
     $$J(\xi,\eta) =
     \begin{vmatrix}
     \frac{\partial \xi}{\partial x} & \frac{\partial \xi}{\partial y} \\
     \frac{\partial \eta}{\partial x} & \frac{\partial \eta}{\partial y}
     \end{vmatrix} = \frac{1}{y^{2}} \neq 0$$
     Thus, we can change the coordinates. From $u_{x} = 2xu_{\xi} + 1\cdot u_{\eta}, u_{y} = (-\frac{1}{y^{2}})u_{\xi}$, $u_{\eta} = 0$<br>
-    $u = f(\xi) = f(x^{2}+\frac{1}{y})$.
+    $u = f(\xi) = f(x^{2}+\frac{1}{y})$.<br>
+    아무튼 1st order PDE는 이렇게 풀 수 있다. 물리에서, Simple Transport Equation을 보자. <br>
+    Let $u(x,t)$ be the concentration of a substance at $x$ at time $t$. Let the speed be $c$. Then, the equation is $u_{t} + cu_{x} = 0$.
+    위의 방법으로 풀면 solution은 $u(x,t) = f(x-ct)$이다.
+    </p>
+    <h2>2nd order PDE</h2>
+    <p>는 elliptic, parabolic(wave), hyperbolic(heat)로 나뉜다더라. 하나씩 살펴보자.</p>
+    <details>
+    <summary>$$\text{Wave Equation : } u_{tt} = c^{2}u_{xx}$$
+        where $u$ is the displacement of string at $x$ at time $t$, $\rho$ is the density of the string, 
+        $T$ is the magnitude of the tension, and $c^{2} = \frac{T}{\rho}$
+    </summary>
+        <div>
+            ..
+        </div>
+    </details>
+    <details>
+    <summary>$$\text{Heat Equation : } u_{t} = ku_{xx}$$
+        where $u$ is the concentration of chemical substance at $x$ at time $t$, $k$ is the diffusivity of the substance.
+    </summary>
+        <div>
+            Fick's law : Rate of motion is proportional to the concentration gradient.
+        </div>
+    </details>
+    <p>wave equation은 2차원 진동에서도 유도 가능하고, heat equation은 3차원 열에서도 유도 가능하다.<br>
+    (Fourier's law : Change of energy is proportional to the gradient)<br>
+    나아가 우리는 이렇게 쓸 수 있겠다..
+    \begin{align*}
+    \text{Wave : } u_{tt} &= c^{2}\Delta u\\
+    \text{Diffusion or Heat : } u_{t} &= k\Delta u\\
+    \text{Laplace : } \Delta u &= 0 (u \text{ doesn't change over time})
+    \end{align*}
     </p>
     <script>
         MathJax = {
