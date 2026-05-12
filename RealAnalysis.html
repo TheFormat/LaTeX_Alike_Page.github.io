@@ -32,7 +32,6 @@
     <div class="container">
         <main>
             <p>
-                5/11 컴활공부 - 엑셀 기출 다시풀기, 틀린거반복 / 대회 - 시계열 될 데이터 좀더취합<br>
                 5/12 컴활공부 - 엑셀 기출 다시풀기, 틀린거반복 / 대회 - 시계열 될 데이터 좀더취합 / PDE wave equation 정리<br>
                 5/13 컴활공부 - 엑세스 강의 빨리 다시보고 예제반복하기 / 대회 - 주성분분석,요인분석 방향잡고 데이터 미리보기<br>
                 5/14 컴활공부 - 엑세스 강의 다시보고 기출문제 풀기 및 총 기출 1회씩 더보기<br>
@@ -777,12 +776,53 @@
     <div class = 'proposition'>
         $f\in L^{1}$ is a complex-valued function. Then, $|\int fd\mu| \leq \int |f|d\mu$.
     </div>
+    <details>
     <summary>Proof. </summary>
     <div class='proof'>
         Take $\theta \in [0,2\pi]$ so that
         $$|\int fd\mu| = e^{i\theta}\int fd\mu = \int e^{i\theta}f d\mu = \int \Re(e^{i\theta}f)d\mu \leq \int |f|d\mu.$$
     </div>
     </details>
+    <p><b>Minkowski's Inequality</b>를 보자.<br>
+    Let $1\leq p &lt \infty$, and $f,g \in L^{p}$. Then, 
+    $$f+g \in L^{p} \text{ and } \Vert f+g \Vert_{p} \leq \Vert f \Vert_{p} + \Vert g \Vert_{p}$$
+    이거를 보이기 위해서는 <b>Hölder's Inequality</b>가 필요하고, 그걸 보이기 위해서는 conjugate of $p$가 필요하다. 후술할 내용들을 보자.
+    </p>
+    <div class = 'definition'>
+        For $p\in (1,\infty)$, the conjugate of $p$ is a number $p'$ such that $\frac{1}{p} + \frac{1}{p'} = 1$.
+    </div>
+    <p>
+        Problem. If $1&lt p &lt \infty$, then for any $a,b &gt 0, ab \leq \frac{a^{p}}{p}+\frac{b^{p'}}{p'}$. The equality holds if
+        $a^{p} = b^{p'}$.<br>
+        증명은 생략하겠다. $b$를 고정하고 $f(a) = ab -  (\frac{a^{p}}{p}+\frac{b^{p'}}{p'})$로 두면 구할 수 있다.
+    </p>
+    <div class = 'definition'>
+        For $1\leq p &lt \infty$, we write $f\in L^{p}$ if $$\Vert f \Vert_{p} := [\int\limits_{X}|f|^{p}d \mu]^{\frac{1}{p}} &lt \infty$$
+    </div>
+    <div class = 'theorem'>
+        <b>Hölder's Inequality</b><br>
+        Let $1\leq p &lt \infty, p'$ is the conjugate of $p$. If $f\in L^{p}, g\in L^{p'}$, then 
+        $fg \in L^{1}$ and $\Vert fg \Vert_{1} \leq \Vert f \Vert_{p}\Vert g \Vert_{p'}$.
+    </div>
+    <details>
+        <summary>Proof of Hölder's Inequality</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <div class = 'theorem'>
+        <b>Minkowski's Inequality</b><br>
+        Let $1\leq p &lt \infty$. If $f,g \in L^{p}$, then $f+g \in L^{p}$ and $\Vert f+g \Vert_{p} \leq \Vert f \Vert_{p} + \Vert g \Vert_{p}$.
+    </div>
+    <details>
+        <summary>Proof of Minkowski's Inequality</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <p>
+        Vector space에서 우리는 norm을 정의할 수 있고, $(V, \Vert \cdot \Vert)$을 normed space라고 한다. $V = L^{p}$는 normed space이다.<br>
+        또, arbitrary set $V$에 대해서 metric $d$를 정의할 수 있는데, $(V,d)$를 metric space라고 한다. normed space에서는 
+        $d(x,y) = \Vert x-y \Vert$로 metric을 정의할 수 있다. 역은 성립하지 않는 점은 짚고 넘어가자. 참고로 $L^{p}$는 metric space이기도 하다.
+    </p>
     <script>
         MathJax = {
             tex: {
