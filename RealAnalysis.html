@@ -908,6 +908,58 @@
         <div class='proof'>추후작성.
         </div>
     </details>
+    <p>The Case $p = \infty$. What exactly is $L^\infty$?</p>
+    <div class = 'definition'>
+        $f\in L^{\infty}$ if $\Vert f \Vert_{\infty} := \inf\{M\geq 0 : |f(x)| \leq M \text{ for } \mu - a.e x\} &lt \infty$.
+    </div>
+    <p>아래 애니메이션을 봐라. infinity norm은 measure가 0인 경우는 무시하고 쭉 내리면서 infimum을 찾으면 된다. 이를 essential supremum이라 한다.</p>
+    <div class="linfty-animation">
+
+    <svg viewBox="0 0 900 500">
+
+    <!-- axes -->
+    <line x1="90" y1="400" x2="830" y2="400" class="axis"/>
+    <line x1="90" y1="400" x2="90" y2="60" class="axis"/>
+
+    <!-- bell curve -->
+    <path class="bell"
+    d="
+    M 260 400
+    C 320 395, 380 280, 470 180
+    C 520 130, 580 130, 630 180
+    C 720 280, 780 395, 820 400
+    "/>
+
+    <!-- fill -->
+    <path class="fill"
+    d="
+    M 260 400
+    C 320 395, 380 280, 470 180
+    C 520 130, 580 130, 630 180
+    C 720 280, 780 395, 820 400
+    L 820 400
+    Z
+    "/>
+
+    <!-- actual point -->
+    <circle cx="550" cy="100"
+        r="7"
+        class="actual-point"/>
+
+
+    <!-- animated M line -->
+    <line x1="90" y1="70"
+          x2="830" y2="70"
+          class="m-line"/>
+
+    <!-- M label -->
+    <text x="100" y="60" class="m-label">M</text>
+    </svg>
+    <p class="caption">
+    The line decreases until it touches the essential supremum,
+    while ignoring the exceptional point $x_{1}$.(이 애니메이션을 살릴지 말지는 고민이 된다..)
+    </p>
+</div>
     <script>
         MathJax = {
             tex: {
