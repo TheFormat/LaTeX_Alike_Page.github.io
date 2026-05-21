@@ -824,8 +824,90 @@
     <p>
         Vector space에서 우리는 norm을 정의할 수 있고, $(V, \Vert \cdot \Vert)$을 normed space라고 한다. $V = L^{p}$는 normed space이다.<br>
         또, arbitrary set $V$에 대해서 metric $d$를 정의할 수 있는데, $(V,d)$를 metric space라고 한다. normed space에서는 
-        $d(x,y) = \Vert x-y \Vert$로 metric을 정의할 수 있다. 역은 성립하지 않는 점은 짚고 넘어가자. 참고로 $L^{p}$는 metric space이기도 하다.
+        $d(x,y) = \Vert x-y \Vert$로 metric을 정의할 수 있다. 역은 성립하지 않는 점은 짚고 넘어가자. 참고로 $L^{p}$는 metric space이기도 하다.<br>
+        아래 정의 3개를 먼저 보고, Banach Space가 뭔지 알아보겠다.
     </p>
+    <div class = 'definition'>
+        A sequence $x_{n}$ in $M$ converges to $x\in M$ if $d(x_{n},x) \rightarrow 0$ as $n\rightarrow \infty$. That is,
+        $$\forall \epsilon &gt 0, \exists N\text{ s.t } \forall n\geq N, d(x_{n},x) &lt \epsilon$$
+    </div>
+    <div class = 'definition'>
+        A sequence $x_{n}$ in $M$ is a <b>Cauchy sequence</b> if $d(x_{n},x_{m}) \rightarrow 0$ as $n,m\rightarrow \infty$. That is,
+        $$\forall \epsilon &gt 0, \exists N\text{ s.t } \forall n,m\geq N, d(x_{n},x_{m}) &lt \epsilon$$
+    </div>
+    <div class = 'definition'>
+        A metric space $M$ is <b>complete</b> if every Cauchy sequence in $M$ converges to a point in $M$.
+    </div>
+    <div class = 'definition'>
+        A normed space $(V, \Vert \cdot \Vert)$ is a <b>Banach space</b> if $V$ is complete metric space w/ metric $d = \Vert x-y \Vert$.
+    </div>
+    <p>Let $M$ be a topological space. Let 
+        $$C_{b}(M) = \{f: M \rightarrow \mathbb{R} : f \text{ is continuous and bounded}\}$$
+        For $f\in C_{b}(M)$, define $\Vert f \Vert = \sup\limits_{x\in M}|f(x)|$
+            <label for="sn-4" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-4" class="sidenote-toggle" />
+            <span class="sidenote">norm은 유한해야 하니까 bounded 가정이 들어왔다. 또한, 이런 norm은 항상 존재하게 된다.</span>. Then, we can show that..
+    </p>
+    <div class = 'proposition'>
+        $(C_{b}(M), \Vert \cdot \Vert)$ is a Banach space.
+    </div>
+        <details>
+        <summary>1. Vector Space(trivial). 2. $\Vert \cdot \Vert$는 norm. 3. complete</summary>
+        <div class='proof'>2번과 3번만 보이자.<br>
+            \begin{align*}
+                i. \Vert f \Vert &= 0 \Leftrightarrow \sup\limits_{x\in M}|f(x)| = 0 \Leftrightarrow f(x) = 0\\
+                ii. \Vert cf \Vert &= \sup\limits_{x\in M}|cf(x)| = |c|\sup\limits_{x\in M}|f(x)| = |c|\Vert f \Vert\\
+                iii. |f + g| &\leq |f| + |g| \leq sup|f(x)| + sup|g(x)|, \Vert f + g \Vert \leq \Vert f \Vert + \Vert g \Vert
+            \end{align*}
+            Next, suppose that $\{f_{n}\}$ is a Cauchy sequence. Then for $\epsilon &gt 0$, there exists $N$ such that for 
+            $n,m\geq N, \Vert f_{n}-f_{m} \Vert &lt \epsilon$.<br>
+            $\forall x, |f_{n}(x) - f_{m}(x)| \leq \Vert f_{n}-f_{m} \Vert &lt \epsilon$ if $n,m\geq N \cdots (*)$<br>
+            Then, $\{f_{n}(x)\}$ is a Cauchy sequence in $\mathbb{R}$. Thus, $\exists f(x) \in \mathbb{R} \text{ s.t }
+            \lim\limits_{n\rightarrow \infty}f_{n}(x) = f(x)$.(아직 $f$가 함수는 아니다). Take $m\rightarrow \infty$ in $(*)$.<br>
+            $|f_{n}(x) - f(x)| \leq \epsilon$ for $n\geq N$. $\therefore f_{n} \rightarrow f$ uniformly.<br>
+            $\therefore f$ is continuous<label for="sn-5" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-5" class="sidenote-toggle" />
+            <span class="sidenote">continuous + uniform convergence면 continuous인 것은 해석학에서 배우는 내용이다.</span> and bounded.<br>
+            $\therefore f\in C_{b}(M)$ and $\Vert f_{n} - f \Vert \leq \epsilon$ if $n\geq N$. $\therefore f_{n} \rightarrow f \text{ in } C_{b}(M)$.
+        </div>
+    </details>
+    <div class = 'lemma'>
+        Let $\{x_{n}\}$ be a Cauchy sequence in a metric space $(M,d)$. If there exists a convergent subsequence
+        $\{x_{n_{k}}|k = 1,2,...\}(\in \{x_{n}\})$, then $\{x_{n}\}$ also converges.
+    </div>
+    <details>
+        <summary>.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <div class = 'lemma'>
+        Let $\{x_{n}\}$ be a Cauchy sequence in a metric space $(M,d)$. Then, there exists a subsequence $\{x_{n_{k}}|k = 1,2,...\}$ of $\{x_{n}\}$
+        such that $d(x_{n_{k}}, x_{n_{k+1}}) \leq 2^{-k}$
+    </div>
+    <details>
+        <summary>.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <p>다시 적분으로 돌아와보자.</p>
+    <div class = 'lemma'>
+        If $f_{n} \geq 0, 1\leq p &lt \infty$, then 
+        $\Vert \sum\limits_{n=1}^{\infty}f_{n} \Vert_{p} \leq \sum\limits_{n=1}^{\infty}\Vert f_{n} \Vert_{p}$.
+    </div>
+        <details>
+        <summary>.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <p>자 이제 드디어 $L^{p}$ 공간의 Completeness를 보일 차례이다.</p>
+    <div class = 'theorem'><b>Riesz-Fischer Theorem</b>
+        For $1\leq p &lt \infty$, $(L^{p}, \Vert \cdot \Vert_{p})$ is a Banach space.
+    </div>
+    <details>
+        <summary>$\Vert \cdot \Vert_{p}$ 이 norm임은 위에 보여줬다. $L^{p}$가 complete함만 보이자.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
     <script>
         MathJax = {
             tex: {
