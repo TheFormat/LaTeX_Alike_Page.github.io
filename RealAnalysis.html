@@ -923,16 +923,63 @@
         <div class='proof'>추후작성.
         </div>
     </details>
+    <p>Remark. $|f| \leq M$ (a.e) $\Leftrightarrow \Vert f \Vert_{\infty} \leq M$.</p>
     <div class = 'theorem'>
         $(L^{\infty}, \Vert \cdot \Vert_{\infty})$ is a Banach space.
     </div>
     <details>
-        <summary>Proof. 먼저 $\Vert \cdot \Vert_{\infty}$ 이 norm임을 보이고(a), $L^{\infty}$가 complete함을 보이자.(b)</summary>
-        <div class='proof'>너무 증명이 길다. 하지만 해야겠지?
+        <summary>Proof. (a)먼저 $\Vert \cdot \Vert_{\infty}$ 이 norm임을 보이고, (b)$L^{\infty}$가 complete함을 보이자.</summary>
+        <div class='proof'>a. $\Vert \cdot \Vert_{\infty}$ is a norm.
+            \begin{align*}
+                i. \Vert f \Vert_{\infty} &= 0 \Leftrightarrow f = 0 \text{ a.e.} \\
+                ii. \Vert cf \Vert_{\infty} &= |c|\Vert f \Vert_{\infty} \\
+                iii. \Vert f + g \Vert_{\infty} &\leq \Vert f \Vert_{\infty} + \Vert g \Vert_{\infty}
+            \end{align*}
+            위에 말한 remark와 정의를 잘 생각해보면 된다.<br>
+            b. $L^{\infty}$ is complete. <br>
+            Let $\{f_{n}\}$ be a Cauchy sequence in $L^{\infty}$. Then, for each $\frac{1}{m}(=\epsilon)$, there exists $J(m)$ such that
+            $$\Vert f_{j} - f_{k} \Vert_{\infty} \leq \frac{1}{m}(|f_{j}(x)-f_{k}(x)| \leq \frac{1}{m} \text{ a.e.}) \text{ if } j,k \geq J(m)$$
+            $\exists$ Null set $N_{j,k,m}$ such that $|f_{j}(x)-f_{k}(x)| \leq \frac{1}{m}$ if $x\in N_{j,k,m}^{C}$ and $j,k \geq J(m)$.<br>
+            Take $N = \bigcup\limits_{m}\bigcup\limits_{j,k\geq J(m)}N_{j,k,m}$. Then $N$ is a null set. If $x \in N^{C}$, then
+            $$|f_{j}(x)-f_{k}(x)| \leq \frac{1}{m} \cdots (*)$$
+            If $x\in N^{C}$, then $f_{i}(x)$ is a Cauchy sequence in $\mathbb{R}$. Thus, $\exists f(x)$
+            <label for="sn-6" class="sidenote-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-6" class="sidenote-toggle" />
+            <span class="sidenote">아쉽게도, 아직 숫자이다. 우리는 $L^{\infty}$ 공간에서의 수렴을 보여줘야 한다.</span> such that 
+            $\lim\limits_{n\rightarrow \infty}f_{n}(x) = f(x)$.(왜? $\mathbb{R}$은 complete metric space이니까).<br>
+            Taking $k\rightarrow \infty$ in $(*)$, if $x\in N^{C}$, then $|f_{j}(x) - f(x)| \leq \frac{1}{m}$ if $j\geq J(m)$.<br>
+            $\therefore \Vert f_{j} - f \Vert_{\infty} \leq \frac{1}{m}$ if $j\geq J(m)$. $\therefore f_{n} \rightarrow f$ in $L^{\infty}$.
         </div>
     </details>
     <h2>Finite measure spaces</h2>
     <p>We now assume that $\mu(A) &lt \infty$.</p>
+    <div class = 'theorem'>
+        $1 \leq p &lt q &lt \infty$. Then, $L^{q}\subset L^{p}$.
+    </div>
+    <details>
+        <summary>Proof. Hölder's inequality를 생각해보면 된다.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <p>참고로, assumption이 없으면, 즉 infinite measure space에서는 성립하지 않는다. $\mu = \lambda, X = [1,\infty)$에서
+    $f(x) = \frac{1}{\sqrt{x}}$를 고려해보자.
+    </p>
+    <h2>Relation between $L^p$ spaces</h2>
+    <p>That is, we do not assume $\mu(X) &lt \infty$ anymore.</p>
+    <p>이런 문제를 생각해보자<br>
+    If $1\leq r &lt p &lt \infty$, then $$\Vert f \Vert_{p} \leq \Vert f \Vert_{r}^{r/p} \Vert f \Vert_{\infty}^{1-r/p}$$
+    증명은 쉽다. $\int |f|^{p}d\mu = \int |f|^{r}|f|^{p-r}d\mu$로 쪼개고 저 위 remark를 생각해보면 된다.
+    </p>
+    <div class = 'theorem'>
+        Suppose $f \in L^{r}$ for some $1\leq r &lt \infty$. Then, 
+        $\lim\limits_{p\rightarrow \infty}\Vert f \Vert_{p} = \Vert f \Vert_{\infty}$.
+    </div>
+    <details>
+        <summary>Proof. $\limsup\Vert f \Vert_{p} \leq \Vert f \Vert_{\infty} \leq \liminf\Vert f \Vert_{p}$임을 보이면 된다.</summary>
+        <div class='proof'>우선, 위에 생각해본 문제에서 $\limsup$을 씌우면 $\Vert f \Vert_{r} &lt \infty$이므로 왼쪽 부등호는 쉽게 나온다.<br>
+            $\Vert f \Vert_{\infty} \leq \liminf\Vert f \Vert_{p}$만 보이자.(추후작성)
+        </div>
+    </details>
     <script>
         MathJax = {
             tex: {
