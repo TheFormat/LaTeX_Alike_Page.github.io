@@ -981,6 +981,18 @@
             $\Vert f \Vert_{\infty} \leq \liminf\Vert f \Vert_{p}$만 보이자.(추후작성)
         </div>
     </details>
+    <h2>Counting Measure and $\ell^{p}$ space</h2>
+    <p>Let $X = \{x_{1}, x_{2}, \ldots\}$ be a countable set, and $\mu$ be a counting measure.<br>
+    Recall that $\sum\limits_{i = 1}^{\infty} |f(x_{i})| &lt \infty$ or $|f|\geq 0$. Then, 
+    $\int\limits_{X}f d\mu = \sum\limits_{i = 1}^{\infty} f(x_{i})$. That is,
+    $$\left(\int\limits_{X}|f|^{p} d\mu\right)^{1/p} = \left(\sum\limits_{i = 1}^{\infty} |f(x_{i})|^{p}\right)^{1/p}$$
+    we use $\ell^{p}$ for $L^{p}$. That is, $f\in \ell^{p} \Leftrightarrow \Vert f \Vert_{p}
+    = \left(\sum\limits_{i = 1}^{\infty} |f(x_{i})|^{p}\right)^{1/p} &lt \infty.$ Here, $\Vert f \Vert_{\infty} = \sup_{i} |f(x_{i})|$.
+    </p>
+    <div class = 'theorem'>
+        If $1 \leq p &lt q \leq \infty$, then $\ell^{p} \subset L^{q}$ and 
+        $$\Vert f \Vert_{\ell^{\infty}}\leq \Vert f \Vert_{L^{q}} \leq \Vert f \Vert_{\ell^{p}} \leq \Vert f \Vert_{\ell^{1}}.$$
+    </div>
     <script>
         MathJax = {
             tex: {
