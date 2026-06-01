@@ -952,7 +952,7 @@
             $\therefore \Vert f_{j} - f \Vert_{\infty} \leq \frac{1}{m}$ if $j\geq J(m)$. $\therefore f_{n} \rightarrow f$ in $L^{\infty}$.
         </div>
     </details>
-    <h2>Finite measure spaces</h2>
+    <h3>Finite measure spaces</h3>
     <p>We now assume that $\mu(A) &lt \infty$.</p>
     <div class = 'theorem'>
         $1 \leq p &lt q &lt \infty$. Then, $L^{q}\subset L^{p}$.
@@ -965,7 +965,7 @@
     <p>참고로, assumption이 없으면, 즉 infinite measure space에서는 성립하지 않는다. $\mu = \lambda, X = [1,\infty)$에서
     $f(x) = \frac{1}{\sqrt{x}}$를 고려해보자.
     </p>
-    <h2>Relation between $L^p$ spaces</h2>
+    <h3>Relation between $L^p$ spaces</h3>
     <p>That is, we do not assume $\mu(X) &lt \infty$ anymore.</p>
     <p>이런 문제를 생각해보자<br>
     If $1\leq r &lt p &lt \infty$, then $$\Vert f \Vert_{p} \leq \Vert f \Vert_{r}^{r/p} \Vert f \Vert_{\infty}^{1-r/p}$$
@@ -981,7 +981,7 @@
             $\Vert f \Vert_{\infty} \leq \liminf\Vert f \Vert_{p}$만 보이자.(추후작성)
         </div>
     </details>
-    <h2>Counting Measure and $\ell^{p}$ space</h2>
+    <h3>Counting Measure and $\ell^{p}$ space</h3>
     <p>Let $X = \{x_{1}, x_{2}, \ldots\}$ be a countable set, and $\mu$ be a counting measure.<br>
     Recall that $\sum\limits_{i = 1}^{\infty} |f(x_{i})| &lt \infty$ or $|f|\geq 0$. Then, 
     $\int\limits_{X}f d\mu = \sum\limits_{i = 1}^{\infty} f(x_{i})$. That is,
@@ -990,8 +990,78 @@
     = \left(\sum\limits_{i = 1}^{\infty} |f(x_{i})|^{p}\right)^{1/p} &lt \infty.$ Here, $\Vert f \Vert_{\infty} = \sup_{i} |f(x_{i})|$.
     </p>
     <div class = 'theorem'>
-        If $1 \leq p &lt q \leq \infty$, then $\ell^{p} \subset L^{q}$ and 
-        $$\Vert f \Vert_{\ell^{\infty}}\leq \Vert f \Vert_{L^{q}} \leq \Vert f \Vert_{\ell^{p}} \leq \Vert f \Vert_{\ell^{1}}.$$
+        If $1 \leq p &lt q \leq \infty$, then $\ell^{p} \subset \ell^{q}$ and 
+        $$\Vert f \Vert_{\ell^{\infty}}\leq \Vert f \Vert_{\ell^{q}} \leq \Vert f \Vert_{\ell^{p}} \leq \Vert f \Vert_{\ell^{1}}.$$
+    </div>
+    <details>
+        <summary>Proof. $q = \infty$인 경우는 자명하다. 모든 $i$에 대해 $|f(x_{i})| \leq \left(\sum|f(x_{i})|^{p}\right)^{1/p}$이고,
+        양쪽에 $\sup$을 취하면 $\Vert f \Vert_{\infty} \leq \Vert f \Vert_{\ell^{p}}$이다.
+        </summary>
+        <div class='proof'>$q &lt \infty$인 경우, $ \bar{f} = \frac{f}{\Vert f \Vert_{p}}$라고 하자. 그러면 $|\bar{f}(x_{i})| \leq 1$이고,
+        $p &lt q$이니까 $|\bar{f}(x_{i})|^{q} \leq |\bar{f}(x_{i})|^{p}$이다.
+        양쪽에 $\sum$을 취하면 $\Vert \bar{f} \Vert_{q} \leq 1$이다. 그래서<br>
+        $\Vert f \Vert_{q} \leq \Vert f \Vert_{p}$이다.
+        </div>
+    </details>
+    <p>Banach Space에서 dense의 개념을 살펴보자.</p>
+    <div class = 'definition'>
+        Let $(X, \Vert \cdot \Vert)$ be a Banach space, and $X_{1}\subset X_{2} \subset X$. Then, we say
+        $X_{1}$ is dense in $X_{2}$ if $\forall x \in X_{2}, \exists \{x_n\} \subset X_1$ such that $x_n \to x$.<br>
+        Know that this is equal to saying that
+        $\forall x \in X_{2}, \forall \epsilon &gt 0, \exists x' \in X_1$ such that $\Vert x' - x \Vert &lt \epsilon$.
+    </div>
+    <p>
+        Let $X = L^{p}(\mathbb{R}^{k},\lambda)$ be a Banach space. We say that the support of
+        $f = \overline{\{x\in \mathbb{R}^k : f(x) \neq 0\}}$.
+    </p>
+    <p>
+        $C_{c}(\mathbb{R}^{k}) = \{f : \mathbb{R}^{k} \rightarrow \mathbb{R} : f \text{ is continuous and has compact support}\}$.<br>
+        $C_{c}^{\infty} = \{f : \mathbb{R}^{k} \rightarrow \mathbb{R} : f \text{ is infinitely differentiable and has compact support}\}$.<br>
+        이런 공간에 대해 $C_{c}^{\infty}\subset C_{c}\subset L^{p}$가 성립하는데..<br>
+        <b>We will show that $C_{c}^{\infty}$ is dense in $L^{p}$.</b><br>
+        아래 두 Lemma를 통해 보일 수 있겠다. 
+    </p>
+    <div class = 'lemma'>
+        $C_{c}$ is dense in $L^{p}$. That is, 
+        $$\forall f \in L^{p}\text{ and } \epsilon > 0, \exists g \in C_{c} \text{ s.t } \Vert f - g \Vert_{p} &lt \epsilon$$
+    </div>
+    <details>
+        <summary>Let $f$ be given $f = f_{+} - f_{-}$.</summary>
+        <div class='proof'><br>
+            1. We may assume $f\geq 0$.<br>
+            2. $\mathbb{1}_{B_{n}(0)^{k}}f \rightarrow f$ in $L^{p}$. We may assume that $f$ has a compact support.<br>
+            3. $\exists 0\geq s_{n}\uparrow f$. We may assume that $f$ is a simple function.<br>
+            4. We may assume that $f = a\mathbb{1}_{A}$ for some $a &gt 0$ and $\lambda(A) &lt \infty$.<br>
+            이렇게 해서 4번 경우의 $f$에 대해서 조건을 만족하는 $g \in C_{c}$를 찾으면, 증명은 끝이 나게 된다.<br>
+            Now, suppose $f = a\mathbb{1}_{A}, a &gt 0, \lambda(A) &lt \infty$, and let $\epsilon &gt 0$ be given. Then,<br>
+            $\exists K^{compact}\subset A \subset U^{open} \text{ s.t } \lambda(U\setminus K) &lt \frac{\epsilon^{p}}{a^{p}}$.<br>
+            $$h(x) = \frac{d(x,G^{C})}{d(x,G^{C})+d(x,K)} \text{ where } d(x,A) = \inf\limits_{y\in A}|x-y|$$
+            Then, $h$ is continuous, and $h(x) = \begin{cases}
+                1 & x\in K\\
+                0 & x\in G^{C}
+            \end{cases}$. Thus, $h \in C_{c}$ and the support of $h$ is in $\bar{G}$.<br>
+            Let $h_{1}(x) = ah(x)\in C_{c}$. Then,
+            $$\int\limits_{\mathbb{R}^k} |f(x) - h_1(x)|^p d\lambda = \int\limits_{G}|h_{1}-f|^{p}d\lambda =
+            \int\limits_{K}|h_{1}-f|^{p}d\lambda + \int\limits_{G\setminus K}|h_{1}-f|^{p}d\lambda
+            \leq \int\limits_{G\setminus K}a^{p}d\lambda &lt \epsilon^{p}.
+            $$
+            여기서 $K$안에서의 적분은 0이 된다. $G\setminus A$에서는 $\int|h_{1}-f|^{p}d\lambda \leq a^{p}\lambda(G\setminus A)$가 되고,
+            $A\setminus K$에서는 $\int|h_{1}-f|^{p}d\lambda \leq a^{p}\lambda(A\setminus K)$가 된다.그래서 위 부등식이 성립하는 것이다. 
+            $\therefore \Vert h_{1}-f \Vert_{p} &lt \epsilon$.
+        </div>
+    </details>
+    <div class = 'lemma'>
+        $C_{c}^{\infty}$ is dense in $C_{c}$.(with $L^{p}$ norm)
+    </div>
+    <details>
+        <summary>.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <h2>Product of abstract measure</h2>
+    <p>$(X,M,\mu), (Y,N,\nu)$ : measure spaces.</p>
+    <div class = 'definition'>
+        $M \times N$ is the smallest  $\sigma$-algebra defined on $X \times Y$ containing all measurable rectangles.
     </div>
     <script>
         MathJax = {
