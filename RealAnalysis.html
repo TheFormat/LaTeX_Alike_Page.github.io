@@ -32,13 +32,12 @@
     <div class="container">
         <main>
             <p>
-                6/1 실해석 필기정리 시작, 우리은행 인턴자소서 시작<br>
-                6/2 실해석 정리, PDE 정리<br>
-                6/3 투표하고 다변량, 미시경제 공부시작<br>
-                6/4 실해석 정리, 다변량 과제(SEM) 시작<br>
+                6/2 실해석 정리<br>
+                6/3 투표하고 미시경제 공부시작, 실해석 정리<br>
+                6/4 실해석 정리, 다변량 과제(SEM) 시작, E1적성준비..?<br>
                 6/5 실해석 정리, 다변량 과제, 미시경제 과제완료<br>
-                6/6 실해석 정리, 우리은행 인턴자소서 작성<br>
-                6/7 다변량 과제 마무리, 우리은행 인턴자소서 마무리, 미시경제 공부
+                6/6 실해석 정리, 우리은행 인턴자소서 작성, E1적성준비<br>
+                6/7 E1적성시험 치기, 다변량 과제 마무리, 우리은행 인턴자소서 마무리, 미시경제 공부
             </p>
         </main>
     </div>
@@ -1054,8 +1053,25 @@
         $C_{c}^{\infty}$ is dense in $C_{c}$.(with $L^{p}$ norm)
     </div>
     <details>
-        <summary>.</summary>
-        <div class='proof'>추후작성.
+        <summary>Proof 이 좀 길다.</summary>
+        <div class='proof'>Take (any) $h \in C_{c}^{\infty}, h\geq 0$, supp$(h) \in \overline{B_{1}(0)}$ such as<br>
+            $h(x) = \begin{cases}
+                e^{-\frac{1}{1-|x|^{2}}} & |x| &lt 1\\
+                0 & |x| \geq 1
+            \end{cases}$
+            Let $\phi(x) = \frac{h}{\Vert h \Vert_{1}}$. Then we have<br>
+            i. $\phi \geq 0$. ii. supp$(\phi) \subset \overline{B_{1}(0)}$. iii. $\int \phi d\lambda = 1$.
+            Now, let $\phi_{\epsilon}(x) = \epsilon^{-k}\phi(\frac{x}{\epsilon})$. Then, we have<br>
+            i. $\phi_{\epsilon} \geq 0$. ii. supp$(\phi_{\epsilon}) \subset \overline{B_{\epsilon}(0)}$. 
+            iii. $\int |\phi_{\epsilon}|^{p} d\lambda = 1$.<br>
+            Now, say for any function $u, u^{\epsilon}(x) = (\phi_{\epsilon} * u)(x) = (u * \phi_{\epsilon})(x)$. Then, we know that<br>
+            i. if $u$ is continuous at x, then $u^{\epsilon}(x) \rightarrow u(x)$ as $\epsilon \rightarrow 0$.
+            ii. if $u$ is uniformly continuous, then $u^{\epsilon} \rightarrow u$ uniformly.<br>
+            Know that
+            $$u^{\epsilon}(x) - u(x) = \int \phi_{\epsilon}(y)(u(x-y) - u(x)) d\lambda(y), 
+            |u^{\epsilon}(x) - u(x)| \leq \int\limits_{|y| \leq \epsilon} \phi_{\epsilon}(y)|u(x-y) - u(x)| d\lambda(y)
+            $$
+            Let $f \in C_{c}$ and supp$(f) \subset B_{n}(0)$....
         </div>
     </details>
     <h2>Product of abstract measure</h2>
