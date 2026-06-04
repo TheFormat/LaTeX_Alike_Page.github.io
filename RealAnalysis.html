@@ -361,7 +361,7 @@
         </div>
     </details>
     <h2>Algebra of Sets and Measurable Functions</h2>
-    <div class='definition'>
+    <div class='definition' id="algebra-def">
         Let $M$ be a collection of subsets of $X$. That is, $M\subset 2^{X}.$<br>
         $M$ is an algebra(field) if<br>
         a. $\emptyset\in M$<br>
@@ -1114,6 +1114,61 @@
         <div class='proof'>추후작성.
         </div>
     </details>
+    <div class = 'lemma'>
+        Let $S$ denote the collection of finite disjoint union of measurable rectangles. Then, $S$ is an algebra in $X \times Y$.
+    </div>
+    <details>
+        <summary><a href = '#algebra-def'>algebra의 정의 보러가기</a></summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
+    <div class = 'definition'>
+        <b>Monotone Class</b><br>
+    Let $Z$ be a set.(product set일 필요가 없다) Then, $S\subset 2^{Z}$ is a monotone class if <br>
+    i. $A_{1} \subset A_{2} \subset \cdots$ and $A_{n} \in S$, then $\bigcup\limits_{n}A_{n} \in S$<br>
+    ii. $A_{1} \supset A_{2} \supset \cdots$ and $A_{n} \in S$, then $\bigcap\limits_{n}A_{n} \in S$.
+    </div>
+    <p>algebra와는 다르다. 참고로 $\sigma$-algebra는 monotone class이다.</p>
+    <details>
+        <summary>monotone class $S$가 algebra면, $S$는 $\sigma$-algebra이다.</summary>
+        <div class='proof'>$A_{n} \in S$이고 $B_{n} = \bigcup\limits_{i=1}^{n}A_{i}$라고 하자. 그러면 $B_{n}$들은 $S$에 속하게 되어서<br>
+            결국 $\bigcup\limits_{n}A_{n} = \bigcup\limits_{n}B_{n} \in S$가 된다.
+        </div>
+    </details>
+    <div class = 'definition'>
+        Let $S\subset 2^{Z}$. Then, we say $S_{mo} = $ intersection of all monotone classes containing $S$. That is, 
+        $$S_{mo} = \bigcap_{\alpha}S_{\alpha}(\text{where } S_{\alpha} \text{ is a monotone class})$$
+        It is also the smallest monotone class containing $S$.
+    </div>
+    <p>Know that $S_{mo}\subset \sigma(S)$. 되짚어보자면, $\sigma(S)$는 $S$를 포함하는 가장 작은 $\sigma$-algebra이다.</p>
+    <div class = 'theorem'>
+        <b>Monotone Class Theorem</b><br>
+        Let $S$ be an algebra in $Z$. Then, $S_{mo} = \sigma(S)$.
+    </div>
+    <details>
+        <summary>It suffices to show that $S_{mo}$ is an algebra.(algebra면 $\sigma$-algebra이고, $\sigma(S)$보다는 클 것이니까)</summary>
+        <div class='proof'>
+            i. $A\in S_{mo} \Rightarrow A^{C} \in S_{mo}$<br>
+            Let $T = \{A|A^{C} \in S_{mo}\}$. Then, $S \subset T$, and $T$ is a monotone class.(혼자해보자)<br>
+            Thus, $S_{mo} \subset T$.<br>
+            ii. $A, B \in B_{mo} \Rightarrow A\cup B \in S_{mo}$<br>
+            Fix $B \in S$. Let $T' = \{a|A\cup B \in S_{mo}\}$. Then, $S \subset T'$, and $T'$ is a monotone class.(마찬가지로, 해보면된다)<br>
+            Thus, $S_{mo} \subset T'$. We showed that if $B\in S$ and $A\in S_{mo}$, then $A\cup B \in S_{mo}$.<br>
+            Now, fix $A\in S_{mo}$. Let $T'' = \{B|A\cup B \in S_{mo}\}$. Then, $S \subset T''$, and $T''$ is a monotone class.<br>
+            Thus, $S_{mo} \subset T''$. Hence, $\forall A,B \in S_{mo}$, $A\cup B \in S_{mo}$.
+        </div>
+    </details>
+    <div class = 'definition'>
+        A measure space $(X,M,\mu)$ is <b>$\sigma$-finite</b> if 
+        $$\exists A_{n} \in M, \mu(A_{n}) &lt \infty, \bigcup_{n} A_{n} = X$$
+    </div>
+    <p>각각의 measure들이 유한한 것이 중요하다.</p>
+    <p>Remark. If $(X,M,\mu)$ is $\sigma$-finite, then we can take $A_{n}$ such that<br>
+    i. $A_{1}\subset A_{2} \subset \cdots$ or<br>
+    ii. $A_{n}$'s are disjoint.<br>
+    $B_{n} = \bigcup\limits_{i=1}^{n}A_{i}$, $C_{n} = B_{n}\setminus B_{n-1}$라고 두면 자연스럽게 나온다.
+    </p>
+
     <script>
         MathJax = {
             tex: {
