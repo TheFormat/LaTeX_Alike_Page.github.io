@@ -32,9 +32,7 @@
     <div class="container">
         <main>
             <p>
-                6/2 실해석 정리<br>
-                6/3 투표하고 미시경제 공부시작, 실해석 정리<br>
-                6/4 실해석 정리, 다변량 과제(SEM) 시작, E1적성준비..?<br>
+                6/4 실해석 정리, 다변량 과제(군집분석) 시작<br>
                 6/5 실해석 정리, 다변량 과제, 미시경제 과제완료<br>
                 6/6 실해석 정리, 우리은행 인턴자소서 작성, E1적성준비<br>
                 6/7 E1적성시험 치기, 다변량 과제 마무리, 우리은행 인턴자소서 마무리, 미시경제 공부
@@ -1071,14 +1069,51 @@
             $$u^{\epsilon}(x) - u(x) = \int \phi_{\epsilon}(y)(u(x-y) - u(x)) d\lambda(y), 
             |u^{\epsilon}(x) - u(x)| \leq \int\limits_{|y| \leq \epsilon} \phi_{\epsilon}(y)|u(x-y) - u(x)| d\lambda(y)
             $$
-            Let $f \in C_{c}$ and supp$(f) \subset B_{n}(0)$....
+            Let $f \in C_{c}$ and supp$(f) \subset B_{n}(0)$. Given $0 &lt \epsilon &lt 1$, we have<br>
+            $f^{\epsilon}(x) = \int\phi_{\epsilon}(y)f(x-y)d\lambda(y) = \int\limits_{|x-y| \leq \epsilon}\phi_{\epsilon}(x-y)f(y)d\lambda(y)$<br>
+            Then, supp$(f) \subset B_{n+1}(0).(\because |x|\geq n+1\text{ 일 때,} |y|\geq n, |y| &lt n \text{ 두가지를 따져보면 된다.})$
+            $$\int\limits_{\mathbb{R}^k} |f(x) - f^{\epsilon}(x)|^p d\lambda(x) = 
+            \int\limits_{B_{n+1}(0)} |f(x) - f^{\epsilon}(x)|^p d\lambda(x) \leq (\sup\limits_{x}|f-f^{\epsilon}|^{p})Vol(B_{n+1}(0))
+            \rightarrow 0 \text{ as } \epsilon \rightarrow 0$$
+            남은건 $f^{\epsilon} \in C_{c}^{\infty}$임을 보이는 것이다.<br>
+            $f^{\epsilon} = \int \phi_{\epsilon}(y)f(x-y)d\lambda(y)$에서 $x$가 주어져있다고 하면 
+            $\sup \left\lvert \frac{\partial \phi_{\epsilon}}{\partial x_{i}}(z) \right\rvert \leq C, |f| \in L^{1}(B_{n+1}(0))$.<br>
+            By LDCT,...
         </div>
     </details>
     <h2>Product of abstract measure</h2>
-    <p>$(X,M,\mu), (Y,N,\nu)$ : measure spaces.</p>
+    <p>$(X,M,\mu), (Y,N,\nu)$ : measure spaces.<br>
+    우리의 Goal은 $(X \times Y, M \times N, \mu \times \nu)$라는 measure space를 만드는 것이다. 근데 이제<br>
+    If $f$ is $M\times N$ measurable, then 
+    $$\int\limits_{X\times Y}fd(\mu \times \nu) = \int\limits_{Y}\left(\int\limits_{X} f(x,y) d\mu(x)\right) d\nu(y) = 
+    \int\limits_{X}\left(\int\limits_{Y} f(x,y) d\nu(y)\right) d\mu(x)$$
+    이 조건을 충족하는..<br>
+    이게 될려면 $M \times N, \mu \times \nu$가 어떻게 정의되어야 할지, 그리고 $\int\limits_{X} f(x,y) d\mu(x)$값이 $N$ measurable한지도 따져봐야한다.
+    </p>
     <div class = 'definition'>
         $M \times N$ is the smallest  $\sigma$-algebra defined on $X \times Y$ containing all measurable rectangles.
     </div>
+    <p>아래 notation들을 사용하자.<br>
+    <b>Notation 1.</b> $E \subset X \times Y$.<br>
+    i. For fixed $y$, $E_{y} = \{x\in X : (x,y) \in E\}$.<br>
+    ii. For fixed $x$, $E^{x} = \{y\in Y : (x,y) \in E\}$.<br>
+    <b>Notation 2.</b> $f : X \times Y \rightarrow \overline{\mathbb{R}}$.<br>
+    i. For fixed $y$, $f_{y}(x) = f(x,y)$. 좋아보이는 notation은 아니다. $f(\cdot,y)$로도 알고있자.<br>
+    ii. For fixed $x$, $f^{x}(y) = f(x,y)$. 마찬가지로, $f(x,\cdot)$로도 표현할 수 있겠다.<br>
+    Note that <br>
+    i. $E_{y}^{C} = (E^{C})_{y}$<br>
+    ii. $\left(\bigcup E_{n}\right)_{y} = \bigcup(E_{n})_{y}$<br>
+    iii. $\left(\mathbb{1}_{E}\right)_{y} = \mathbb{1}_{E_{y}}$<br>
+    </p>
+    <p>두가지 문제를 생각해보자.<br>
+        1. If $E \in M \times N$, then $E_{y} \in M$ and $E^{x}\in N$.<br>
+        2. If $f$ is $M \times N$ measurable, then $f_{y}$ is $M$ measurable and $f^{x}$ is $N$ measurable.<br>
+    </p>
+    <details>
+        <summary>.</summary>
+        <div class='proof'>추후작성.
+        </div>
+    </details>
     <script>
         MathJax = {
             tex: {
