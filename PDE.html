@@ -114,6 +114,12 @@
         heat equation을 고려해보자. $u$가 온도일 때, Robin condition은 한쪽 끝에 쿨링시스템이나 열을 가하는 경우가 되겠다.
     </p>
     <p>세 가지 경우로 나눠서 PDE를 풀 것이다. $(-\infty,\infty), (0,\infty), (0,l)$에서 PDE를 풀 것이고, 그 과정들은 각 챕터들에 후술이 되겠다.</p>
+    <h3>(미정)</h3>
+    <p>wave : $u_{tt}-c^{2}u_{xx} = 0.$, $(\partial_{t}+c\partial_{x})(\partial_{t}-c\partial_{x})u = 0$. This is equal to<br>
+    $v_{t}+cv_{x} = 0$ and $u_{t}-c u_{x} = v$. $v(x,t) = h(x-ct)$.<br>
+    Non-homogeneous PDE인 $u_{t}-c u_{x} = v$의 해는 어떻게 될까? 일반 ODE를 풀듯이, $u = u_{h}+u_{p}$ where 
+    $u_{h}$ is the solution of homogeneous PDE and $u_{p}$ is a particular solution of non-homogeneous PDE가 되겠다.<br>
+    </p>
     <script>
         MathJax = {
             tex: {
